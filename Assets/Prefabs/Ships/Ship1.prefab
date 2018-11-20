@@ -35,6 +35,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982655035140606}
+  - component: {fileID: 114835025184124488}
+  - component: {fileID: 114881831854876130}
+  - component: {fileID: 114529830445651648}
+  - component: {fileID: 114256526665896178}
   m_Layer: 0
   m_Name: Ship1
   m_TagString: Untagged
@@ -69,6 +73,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114256526665896178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420226209541498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc28ef66c9caaf942b8ff27aee9fc965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  shield: 2
+--- !u!114 &114529830445651648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420226209541498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4f80d5fa4889b40ade6a92014ab448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponRange: 3
+  weaponDamage: 2
+--- !u!114 &114835025184124488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420226209541498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123cb009c40010c42b75a743fdd1dc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moving: 0
+  shooting: 0
+  activated: 0
+--- !u!114 &114881831854876130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420226209541498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d95dbe11d069243a46c67e147e820b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 2
 --- !u!212 &212419237037088596
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -112,6 +168,6 @@ SpriteRenderer:
   m_Size: {x: 0.99, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
