@@ -7,6 +7,8 @@ public class Ship : MonoBehaviour {
 	public bool moving = false;
 	public bool shooting = false;
 	public bool activated = false;
+
+    public Node currentNode;
 	// Use this for initialization
 	void Start () {
 	}

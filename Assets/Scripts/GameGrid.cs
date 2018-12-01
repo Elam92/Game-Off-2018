@@ -81,5 +81,110 @@ public class GameGrid : MonoBehaviour {
         return nodeList;
     }
 
+    public static List<Node> GetNearestNeighbours(int[] gridPosition)
+    {
+        List<Node> neighbours = new List<Node>();
 
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                if (x == 0 && y == 0)
+                    continue;
+
+                int checkX = gridPosition[0] + x;
+                int checkY = gridPosition[1] + y;
+
+                if(checkX >= 0 && checkX < grid.GetLength(0) && checkY >= 0 && checkY < grid.GetLength(1))
+                {
+                    neighbours.Add(grid[checkX, checkY]);
+                }
+            }
+        }
+
+        return neighbours;
+    }
+
+    public static List<Node> FindPath(Node from, Node to)
+    {
+        List<Node> openSet = new List<Node>();
+        List<Node> closedSet = new List<Node>();
+
+        openSet.Add(from);
+
+        while(openSet.Count > 0)
+        {
+            Node currentNode = openSet[0];
+            for (int i = 1; i < openSet.Count; i++)
+            {
+                if(openSet[i].fCost < currentNode.fCost ||
+                   openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost)
+                {
+                    currentNode = openSet[i];
+                }
+            }
+
+            openSet.Remove(currentNode);
+            closedSet.Add(currentNode);
+
+            if(currentNode.Equals(to))
+            {
+                return RetracePath(from, to);
+            }
+
+            foreach (Node neighbour in GetNearestNeighbours(currentNode.gridPosition))
+            {
+                if (closedSet.Contains(neighbour))
+                {
+                    continue;
+                }
+
+                int movementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                if(movementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                {
+                    neighbour.gCost = movementCostToNeighbour;
+                    neighbour.hCost = GetDistance(neighbour, to);
+                    neighbour.parent = currentNode; 
+
+                    if(!openSet.Contains(neighbour))
+                    {
+                        openSet.Add(neighbour);
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    static List<Node> RetracePath(Node startNode, Node endNode)
+    {
+        List<Node> path = new List<Node>();
+
+        Node currentNode = endNode;
+
+        while(currentNode != startNode)
+        {
+            path.Add(currentNode);
+            currentNode = currentNode.parent;
+        }
+
+        path.Reverse();
+
+        return path;
+    }
+
+    private static int GetDistance(Node a, Node b)
+    {
+        int dstX = Mathf.Abs(a.gridPosition[0] - b.gridPosition[0]);
+        int dstY = Mathf.Abs(a.gridPosition[1] - b.gridPosition[1]);
+
+        /*
+        if(dstX > dstY)
+        {
+            return 14*dstY + 10*(dstX - dstY);
+        }
+
+        return 14*dstX + 10*(dstY - dstX); */
+
+        return (dstX < dstY) ? dstX : dstY;
+    }
 }
