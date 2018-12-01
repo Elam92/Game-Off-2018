@@ -35,8 +35,8 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 
         spriteRen = GetComponent<SpriteRenderer>();
         originalColour = spriteRen.color;
-		moveableColour = new Color32 (0, 255, 0, 25);
-		targetColour = new Color32 (255, 0, 0, 25);
+		moveableColour = new Color32 (0, 255, 0, 40);
+		targetColour = new Color32 (255, 0, 0, 40);
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
