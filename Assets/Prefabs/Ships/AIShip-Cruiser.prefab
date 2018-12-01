@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 1145883037774720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 4672274238974356}
   m_RootOrder: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7df92f271584baa8f0093b587f4c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 4
+  MovementSpeed: 5
   moveSFX: {fileID: 8300000, guid: c84f62d34c7c98042b5622ae22c040ba, type: 3}
 --- !u!114 &114574156851068314
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc28ef66c9caaf942b8ff27aee9fc965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 5
   shield: 2
 --- !u!114 &114738457185334512
 MonoBehaviour:
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponRange: 2
-  weaponDamage: 2
+  weaponDamage: 3
   audioSource: {fileID: 0}
   fireSFX: {fileID: 8300000, guid: d8162f16a2be86d409b39cf9fb73bf7a, type: 3}
 --- !u!212 &212593069211507594

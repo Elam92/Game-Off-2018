@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc28ef66c9caaf942b8ff27aee9fc965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 6
   shield: 0
 --- !u!114 &114524602856711918
 MonoBehaviour:
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponRange: 3
-  weaponDamage: 4
+  weaponDamage: 3
   audioSource: {fileID: 0}
   fireSFX: {fileID: 8300000, guid: a00e4c62d951b41498948ca5fd8aef06, type: 3}
 --- !u!114 &114766407919170914
