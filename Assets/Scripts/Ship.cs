@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ship : MonoBehaviour {
-	public bool enemy;
 	public bool moving = false;
 	public bool shooting = false;
 	public bool activated = false;

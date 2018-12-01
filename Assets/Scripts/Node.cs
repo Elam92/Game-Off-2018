@@ -41,41 +41,57 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData pointerEventData)
 	{
-		if (GameGrid.selectedNode != null) {
-			if (this.spriteRen.color == moveableColour && GameGrid.selectedNode.unit.GetComponent<Ship> ().moving == true) {
-				GameGrid.selectedNode.ResetNeighbours ();
-				GameGrid.selectedNode.unit.transform.position = this.transform.position;
-				unit = GameGrid.selectedNode.unit;
-				GameGrid.selectedNode.unit = null;
-				GameGrid.selectedNode.traversable = true;
-				traversable = false;
-				unit.GetComponent<Ship> ().moving = false;
-				unit.GetComponent<Ship> ().shooting = true;
-			}
-			else if(this.spriteRen.color == targetColour && GameGrid.selectedNode.unit.GetComponent<Ship> ().shooting == true)
-			{
-				int damage = GameGrid.selectedNode.unit.GetComponent<ShipShooting> ().DamageTarget();
-				unit.GetComponent<ShipHealth> ().TakeDamage (damage);
-				GameGrid.selectedNode.ResetNeighbours ();
-				GameGrid.selectedNode.unit.GetComponent<Ship>().shooting = false;
-			}
-			else
-			{
-				GameGrid.selectedNode.ResetNeighbours ();
-			}
-		}
-		GameGrid.selectedNode = this;
-		CurrentAction ();
+        if (GameGrid.playerTurn == true)
+        {
+            if (GameGrid.selectedNode != null)
+            {
+                if (this.spriteRen.color == moveableColour && GameGrid.selectedNode.unit.GetComponent<Ship>().moving == true)
+                {
+                    GameGrid.selectedNode.ResetNeighbours();
+                    GameGrid.selectedNode.unit.transform.position = this.transform.position;
+                    unit = GameGrid.selectedNode.unit;
+                    GameGrid.selectedNode.unit = null;
+                    GameGrid.selectedNode.traversable = true;
+                    traversable = false;
+                    unit.GetComponent<Ship>().moving = false;
+                    unit.GetComponent<Ship>().shooting = true;
+                }
+                else if (this.spriteRen.color == targetColour && GameGrid.selectedNode.unit.GetComponent<Ship>().shooting == true)
+                {
+                    int damage = GameGrid.selectedNode.unit.GetComponent<ShipShooting>().DamageTarget();
+                    unit.GetComponent<ShipHealth>().TakeDamage(damage);
+                    GameGrid.selectedNode.ResetNeighbours();
+                    GameObject.Instantiate(GameObject.Find("Missle"), GameGrid.selectedNode.unit);
+                    GameGrid.selectedNode.unit.GetComponentInChildren<Missle>().target = unit;
+                    GameGrid.selectedNode.unit.GetComponent<Ship>().shooting = false;
+                    unit.GetComponent<Ship>().activated = true;
+                    GameGrid.MovedShip();
+                }
+                else
+                {
+                    GameGrid.selectedNode.ResetNeighbours();
+                }
+            }
+            GameGrid.selectedNode = this;
+            CurrentAction();
+        }
 	}
 
 	public void CurrentAction(){
 		if (unit != null && unit.GetComponent<Ship>().shooting && unit.GetComponent<ShipShooting> () == true) {
 			Node[] neighbours = unit.GetComponent<ShipShooting>().ShotRange(gridPosition);
-			SetSquareType (false, neighbours);
-			unit.GetComponent<Ship>().activated = true;
+            if (neighbours.Length == 0)
+            {
+                unit.GetComponent<Ship>().activated = true;
+                GameGrid.MovedShip();
+            }
+            else
+            {
+                SetSquareType(false, neighbours);
+            }
 		}
 
-		else if (unit != null && unit.GetComponent<ShipMovement> () == true && !unit.GetComponent<Ship>().activated && !unit.GetComponent<Ship>().enemy) {
+		else if (unit != null && unit.GetComponent<ShipMovement> () == true && !unit.GetComponent<Ship>().activated && unit.tag == "PlayerShip") {
 			Node[] neighbours = unit.GetComponent<ShipMovement>().MoveRange(gridPosition);
 			SetSquareType (true, neighbours);
 			unit.GetComponent<Ship> ().moving = true;
@@ -83,15 +99,13 @@ public class Node : MonoBehaviour, IPointerClickHandler {
     }
 
 	public void SetSquareType(bool isMove,Node[] neighbours){
-		if (neighbours.Length != 0) {
-			for (int i = 0; i < neighbours.Length; i++) {
-				if (neighbours [i].traversable && isMove) {
-					neighbours [i].SetColour (moveableColour);
-				}
-				else if (!neighbours [i].traversable && !isMove && neighbours [i].unit != null && neighbours [i].unit.GetComponent<ShipHealth> () != false) {
-					if (neighbours [i].gridPosition != gridPosition) {
-						neighbours [i].SetColour (targetColour);
-					}
+		for (int i = 0; i < neighbours.Length; i++) {
+			if (neighbours [i].traversable && isMove) {
+				neighbours [i].SetColour (moveableColour);
+			}
+			else if (!neighbours [i].traversable && !isMove && neighbours [i].unit != null && neighbours [i].unit.GetComponent<ShipHealth> () != false && unit.tag != neighbours[i].unit.tag) {
+				if (neighbours [i].gridPosition != gridPosition) {
+					neighbours [i].SetColour (targetColour);
 				}
 			}
 		}

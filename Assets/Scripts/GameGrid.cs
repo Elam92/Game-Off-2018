@@ -12,9 +12,16 @@ public class GameGrid : MonoBehaviour {
 
 	private static Node[,] grid;
 
+    public static  bool playerTurn = true;
+
+    private static GameObject[] curShips;
+
+    private static int actedShips = 0;
+
     private void Awake()
     {
         CalculateGrid();
+        SetTurn();
     }
 
     public void CalculateGrid()
@@ -44,7 +51,62 @@ public class GameGrid : MonoBehaviour {
         }
     }
 
-    // TODO: Use Range parameter.
+    // FROM HERE
+    public static void SetTurn()
+    {
+        Debug.Log("set turn");
+        if (playerTurn == false)
+        {
+            Debug.Log("AI turn");
+            GetShips("AiShip");
+            actedShips = 0;
+            //run Ai script and keep track of ships with movedShip(){}
+        }
+        else
+        {
+            Debug.Log("player turn");
+            GetShips("PlayerShip");
+            actedShips = 0;
+            //let player act
+        }
+    }
+
+    public static void GetShips(string turn) 
+    {
+        curShips = GameObject.FindGameObjectsWithTag(turn);
+        Debug.Log("curShips = " + curShips.Length.ToString());
+    }
+
+    public static void MovedShip() 
+    {
+        actedShips += 1;
+        if (actedShips == curShips.Length)
+        {
+            foreach (GameObject ship in curShips)
+            {
+                ship.GetComponent<Ship>().activated = false;
+                ship.GetComponent<Ship>().moving = false;
+                ship.GetComponent<Ship>().shooting = false;
+            }
+            EndTurn();
+        }
+    }
+
+    public static void EndTurn() 
+    {
+        if (playerTurn == false)
+        {
+            playerTurn = true;
+            SetTurn();
+        }
+        else
+        {
+            playerTurn = false;
+            SetTurn();
+        }
+    }
+
+    //TO HERE MIGHT BE OWN SCRIPT
 	public static List<Node> GetNeighbours(int[] gridPosition, int range,List<Node> nodeList,int current)
     {
         int row = gridPosition[0];
