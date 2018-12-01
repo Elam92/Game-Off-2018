@@ -31,13 +31,18 @@ public class AIShip : Ship
         // No target, find closest one.
         target = shipShooting.GetClosestTarget(currentNode, targetShips);
 
+        Debug.Log(target.transform.name);
+
         List<Node> path = GameGrid.FindPath(currentNode, target.currentNode);
 
+        /*
         Color32 rndColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         for (int i = 0; i < path.Count; i++)
         {
             path[i].SetColour(rndColour);
         }
+        */
+
         // If out of range, get into range.
         int index = 0;
         if (path.Count > shipShooting.weaponRange && movementSpeed > 0)
