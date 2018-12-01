@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7df92f271584baa8f0093b587f4c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
+  MovementSpeed: 3
   moveSFX: {fileID: 8300000, guid: c84f62d34c7c98042b5622ae22c040ba, type: 3}
 --- !u!114 &114574156851068314
 MonoBehaviour:

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d95dbe11d069243a46c67e147e820b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
+  MovementSpeed: 1
   moveSFX: {fileID: 8300000, guid: d54b5a85971422e42aa695f2a95a78a7, type: 3}
 --- !u!114 &114278810849885330
 MonoBehaviour:
