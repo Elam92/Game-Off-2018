@@ -19,8 +19,8 @@ public class ShipMovement : MonoBehaviour {
 
 	public void MoveSprite(Node current, Node target){
 		StartCoroutine (MakeMove(current,target));
-		target.unit = transform;
 		current.unit = null;
+		target.unit = transform;
 		current.traversable = true; 
 		target.traversable = false;
         GetComponent<Ship>().currentNode = target;

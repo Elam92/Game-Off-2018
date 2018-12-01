@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(GameGridGenerator))]
 public class GameGrid : MonoBehaviour {
@@ -23,10 +24,29 @@ public class GameGrid : MonoBehaviour {
     private void Awake()
     {
         CalculateGrid();
-		Button endTurnButton = Button.FindObjectOfType<Button> ();
+		Button[] allButtons = Button.FindObjectsOfType<Button> ();
+		Button endTurnButton = allButtons [0];
+		//Button endGameButton = allButtons [1];
 		endTurnButton.onClick.AddListener (ForceEnd);
+		//endGameButton.onClick.AddListener (End);
         SetTurn();
     }
+
+	void End()
+	{
+		SceneManager.LoadScene ("MainMenu");
+	}
+
+	void ForceEnd()
+	{
+		foreach (GameObject ship in curShips)
+		{
+			ship.GetComponent<Ship>().activated = false;
+			ship.GetComponent<Ship>().moving = false;
+			ship.GetComponent<Ship>().shooting = false;
+		}
+		EndTurn();
+	}
 
 	public static void SetUI(){
 		GameObject current = GameObject.Find ("HealthValue");
@@ -131,17 +151,7 @@ public class GameGrid : MonoBehaviour {
             SetTurn();
         }
     }
-
-	void ForceEnd()
-	{
-		foreach (GameObject ship in curShips)
-		{
-			ship.GetComponent<Ship>().activated = false;
-			ship.GetComponent<Ship>().moving = false;
-			ship.GetComponent<Ship>().shooting = false;
-		}
-		EndTurn();
-	}
+		
     //TO HERE MIGHT BE OWN SCRIPT
 	public static List<Node> GetNeighbours(int[] gridPosition, int range,List<Node> nodeList,int current,bool isShoot)
     {
@@ -232,7 +242,7 @@ public class GameGrid : MonoBehaviour {
 
             foreach (Node neighbour in GetNearestNeighbours(currentNode.gridPosition))
             {
-                if (neighbour.traversable == false && neighbour.unit == null || closedSet.Contains(neighbour))
+				if (neighbour.traversable == false && neighbour.unit == null || closedSet.Contains(neighbour))
                 {
                     continue;
                 }

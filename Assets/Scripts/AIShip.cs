@@ -29,10 +29,7 @@ public class AIShip : Ship
         int movementSpeed = shipMovement.MovementSpeed;
 
         // No target, find closest one.
-        if(target == null)
-            target = shipShooting.GetClosestTarget(currentNode, targetShips);
-
-        Debug.Log(target.transform.name);
+        target = shipShooting.GetClosestTarget(currentNode, targetShips);
 
         List<Node> path = GameGrid.FindPath(currentNode, target.currentNode);
 
