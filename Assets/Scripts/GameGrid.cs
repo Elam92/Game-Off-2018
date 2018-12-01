@@ -131,7 +131,7 @@ public class GameGrid : MonoBehaviour {
 		EndTurn();
 	}
     //TO HERE MIGHT BE OWN SCRIPT
-	public static List<Node> GetNeighbours(int[] gridPosition, int range,List<Node> nodeList,int current)
+	public static List<Node> GetNeighbours(int[] gridPosition, int range,List<Node> nodeList,int current,bool isShoot)
     {
         int row = gridPosition[0];
         int col = gridPosition[1];
@@ -157,8 +157,8 @@ public class GameGrid : MonoBehaviour {
 					}
 					next [0] += directions [i];
 					next [1] += directions [i + 1];
-					if (grid [next [0], next [1]].traversable == true) {
-						nodeList = GetNeighbours (next, range, nodeList, current + 1);
+					if (grid [next [0], next [1]].traversable == true || isShoot) {
+						nodeList = GetNeighbours (next, range, nodeList, current + 1,isShoot);
 					}
 					next [0] -= directions [i];
 					next [1] -= directions [i + 1];
