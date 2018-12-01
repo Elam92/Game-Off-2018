@@ -118,7 +118,6 @@ public class GameGrid : MonoBehaviour {
 			return nodeList;
 		}
 
-		//deals with first node
 		if (!nodeList.Contains(grid [row, col])) 
 		{
 			nodeList.Add (grid [row, col]);
@@ -134,7 +133,9 @@ public class GameGrid : MonoBehaviour {
 					}
 					next [0] += directions [i];
 					next [1] += directions [i + 1];
-					nodeList = GetNeighbours(next, range, nodeList, current + 1);
+					if (grid [next [0], next [1]].traversable == true) {
+						nodeList = GetNeighbours (next, range, nodeList, current + 1);
+					}
 					next [0] -= directions [i];
 					next [1] -= directions [i + 1];
 				}
