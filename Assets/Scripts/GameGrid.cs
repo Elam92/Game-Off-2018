@@ -208,29 +208,17 @@ public class GameGrid : MonoBehaviour {
         return neighbours;
     }
 
-    private static void ResetFCost()
-    {
-        for (int x = 0; x < grid.GetLength(0); x++) {
-            for (int y = 0; y < grid.GetLength(1); y++) {
-                grid[x, y].gCost = 0;
-                grid[x, y].hCost = 0;
-            }
-        }
-    }
-
     public static List<Node> FindPath(Node from, Node to)
     {
         List<Node> openSet = new List<Node>();
         List<Node> closedSet = new List<Node>();
-
-        ResetFCost();
 
         openSet.Add(from);
 
         while(openSet.Count > 0)
         {
             Node currentNode = openSet[0];
-            Debug.Log("CURRENT NODE: " + currentNode.fCost);
+
             for (int i = 1; i < openSet.Count; i++)
             {
                 if(openSet[i].fCost < currentNode.fCost ||
@@ -270,7 +258,6 @@ public class GameGrid : MonoBehaviour {
             }
         }
 
-        Debug.Log("RETURNING NULL FROM: " + from.transform.name + " TO: " + to.transform.name);
         return null;
     }
 

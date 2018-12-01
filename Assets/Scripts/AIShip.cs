@@ -35,31 +35,40 @@ public class AIShip : Ship
         Debug.Log(target.transform.name);
 
         List<Node> path = GameGrid.FindPath(currentNode, target.currentNode);
+
         Color32 rndColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         for (int i = 0; i < path.Count; i++)
         {
             path[i].SetColour(rndColour);
         }
         // If out of range, get into range.
+        int index = 0;
         if (path.Count > shipShooting.weaponRange && movementSpeed > 0)
         {
             Node destination = null;
             if (movementSpeed >= path.Count)
                 // Minus 2 to not be in target's position and accounting for Count.
-                destination = path[path.Count - 2];
+                index = path.Count - 2;
             else if (movementSpeed < path.Count)
-                destination = path[movementSpeed - 1];
+                index = movementSpeed - 1;
 
+            destination = path[index];
             shipMovement.MoveSprite(currentNode, destination);
             currentNode = destination;
         }
 
+        // If within range, fire weapon.
+        if(((path.Count-1) - index) <= shipShooting.weaponRange)
+        {
+            Debug.Log("FIRING MISSILE");
+            Node targetNode = path[path.Count - 1];
+            shipShooting.fireMissle(targetNode);
+            if(targetNode.unit == null)
+            {
+                target = null;
+            }
+        }
         GameGrid.MovedShip();
-    }
-
-    private void ShowMoveOptions()
-    {
-        
     }
 
     private void MoveToTarget()

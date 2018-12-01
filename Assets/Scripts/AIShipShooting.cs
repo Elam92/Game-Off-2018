@@ -16,11 +16,7 @@ public class AIShipShooting : ShipShooting
         {
             Ship ship = targetShips[i].GetComponent<Ship>();
 
-            Debug.Log("CURRENT NODE: " + currentNode.transform.name);
-            Debug.Log(ship.currentNode.transform.name);
             List<Node> aPath = GameGrid.FindPath(currentNode, ship.currentNode);
-            Debug.Log("SHORTEST: " + shortestPath == null + " " + shortestPath.Count);
-            Debug.Log("A PATH: " + aPath == null + " " + aPath.Count);
             if(aPath.Count < shortestPath.Count)
             {
                 shortestPath = aPath;
