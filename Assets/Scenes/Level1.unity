@@ -5139,6 +5139,9 @@ MonoBehaviour:
   untraversableMask:
     serializedVersion: 2
     m_Bits: 0
+  endTurnButton: {fileID: 1063596992}
+  endGameButton: {fileID: 1314965039}
+  curScene: 0
 --- !u!4 &723745406
 Transform:
   m_ObjectHideFlags: 0
@@ -6869,6 +6872,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1063596992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114973766890493142, guid: b213fa10a51975247811635d0053fd99,
+    type: 2}
+  m_PrefabInternal: {fileID: 1973794538}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1079345515
 GameObject:
   m_ObjectHideFlags: 0
@@ -8480,6 +8489,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1314965039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114577205677282554, guid: b213fa10a51975247811635d0053fd99,
+    type: 2}
+  m_PrefabInternal: {fileID: 1973794538}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1316487370
 GameObject:
   m_ObjectHideFlags: 0
