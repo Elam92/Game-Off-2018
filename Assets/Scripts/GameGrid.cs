@@ -232,7 +232,9 @@ public class GameGrid : MonoBehaviour {
 
             foreach (Node neighbour in GetNearestNeighbours(currentNode.gridPosition))
             {
-                if (neighbour.traversable == false && neighbour.unit == null || closedSet.Contains(neighbour))
+                if (neighbour.traversable == false && neighbour.unit == null || 
+                    closedSet.Contains(neighbour) || 
+                    neighbour.unit != null && neighbour.unit.tag.Equals("AiShip"))
                 {
                     continue;
                 }

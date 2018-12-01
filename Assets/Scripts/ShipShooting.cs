@@ -5,9 +5,13 @@ using UnityEngine;
 public class ShipShooting : MonoBehaviour {
 	public int weaponRange;
 	public int weaponDamage;
+
+    public AudioSource audioSource;
+    public AudioClip fireSFX;
+
 	// Use this for initialization
 	void Start () {
-		
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +42,15 @@ public class ShipShooting : MonoBehaviour {
 		curPosition.x = 0;
 		transform.rotation = Quaternion.FromToRotation (curPosition, lookAt);
 		GameObject.Instantiate(GameObject.Find("Missle"), transform).GetComponent<Missle>().target = node.unit;
+
+        if(audioSource != null)
+        {
+            if(fireSFX != null)
+            {
+                audioSource.PlayOneShot(fireSFX);
+            }
+        }
+
 		bool dead = node.unit.GetComponent<ShipHealth>().TakeDamage(weaponDamage);
 		if (dead) {
 			node.traversable = true;

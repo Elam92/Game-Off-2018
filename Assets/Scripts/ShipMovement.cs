@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour {
 	public int MovementSpeed;
+
+    public AudioClip moveSFX;
+
 	private Node curTarget;
+    private AudioSource audioSource;
 	// Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
 	}
 
 	void Update (){
@@ -38,6 +43,15 @@ public class ShipMovement : MonoBehaviour {
 			curPosition.x = 0;
 			transform.rotation = Quaternion.FromToRotation (curPosition, lookAt);
 			transform.position = path[i].transform.position;
+            
+            if(audioSource != null)
+            {
+                if(moveSFX != null)
+                {
+                    audioSource.PlayOneShot(moveSFX);
+                }
+            }
+
 			yield return new WaitForSeconds(0.2f);
 		}
 	}
