@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using System;
 using UnityEngine;
 
@@ -21,8 +22,21 @@ public class GameGrid : MonoBehaviour {
     private void Awake()
     {
         CalculateGrid();
+		Button endTurnButton = Button.FindObjectOfType<Button> ();
+		endTurnButton.onClick.AddListener (ForceEnd);
         SetTurn();
     }
+
+	public static void SetUI(){
+		GameObject current = GameObject.Find ("HealthValue");
+		current.GetComponent<Text> ().text = selectedNode.unit.GetComponent<ShipHealth> ().health.ToString();
+		current = GameObject.Find ("SpeedValue");
+		current.GetComponent<Text> ().text = selectedNode.unit.GetComponent<ShipMovement> ().MovementSpeed.ToString();
+		current = GameObject.Find ("RangeValue");
+		current.GetComponent<Text> ().text = selectedNode.unit.GetComponent<ShipShooting> ().weaponRange.ToString();
+		current = GameObject.Find ("DamageValue");
+		current.GetComponent<Text> ().text = selectedNode.unit.GetComponent<ShipShooting> ().weaponDamage.ToString();
+	}
 
     public void CalculateGrid()
     {
@@ -83,7 +97,7 @@ public class GameGrid : MonoBehaviour {
     public static void MovedShip() 
     {
         actedShips += 1;
-        if (actedShips == curShips.Length)
+        if (actedShips >= curShips.Length)
         {
             foreach (GameObject ship in curShips)
             {
@@ -109,6 +123,16 @@ public class GameGrid : MonoBehaviour {
         }
     }
 
+	void ForceEnd()
+	{
+		foreach (GameObject ship in curShips)
+		{
+			ship.GetComponent<Ship>().activated = false;
+			ship.GetComponent<Ship>().moving = false;
+			ship.GetComponent<Ship>().shooting = false;
+		}
+		EndTurn();
+	}
     //TO HERE MIGHT BE OWN SCRIPT
 	public static List<Node> GetNeighbours(int[] gridPosition, int range,List<Node> nodeList,int current)
     {

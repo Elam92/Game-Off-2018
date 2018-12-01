@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBar : MonoBehaviour {
-
+	float healthShrink;
 	// Use this for initialization
 	void Start () {
 		if (gameObject.GetComponentInParent<ShipHealth> () == true) {
+			healthShrink = transform.localScale.y / gameObject.GetComponentInParent<ShipHealth> ().health;
 			GetComponent<MeshRenderer> ().enabled = true;
-//			Transform holder =  transform.localPosition;
-//			holder.localPosition.y -= .5f;
-
+			transform.localPosition = new Vector3 (0f, -.5f, 0f);
 		}
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	public void ReduceBar (int damage) {
+		for (int i = 0; i < damage; i++) {
+			transform.localScale -= new Vector3 (0f, healthShrink, 0f);
+		}
 	}
 }

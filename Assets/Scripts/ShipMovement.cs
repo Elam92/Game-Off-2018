@@ -17,12 +17,11 @@ public class ShipMovement : MonoBehaviour {
 		return neighbours.ToArray ();
 	}
 
-
 	public void MoveSprite(Node current, Node target){
 		StartCoroutine (MakeMove(current,target));
 		target.unit = GameGrid.selectedNode.unit;
 		current.unit = null;
-		target.traversable = true;
+		current.traversable = true; 
 		target.traversable = false;
 		GetComponent<Ship>().moving = false;
 		GetComponent<Ship>().shooting = true;
