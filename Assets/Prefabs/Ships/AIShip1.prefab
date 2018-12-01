@@ -36,9 +36,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4322008782435226}
   - component: {fileID: 114816507894880592}
-  - component: {fileID: 114918964635403616}
-  - component: {fileID: 114479888387491584}
   - component: {fileID: 114889340221880726}
+  - component: {fileID: 114139261105283970}
+  - component: {fileID: 114296092387654052}
   m_Layer: 0
   m_Name: AIShip1
   m_TagString: Untagged
@@ -73,7 +73,7 @@ Transform:
   m_Father: {fileID: 4322008782435226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114479888387491584
+--- !u!114 &114139261105283970
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1847390242480066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c4f80d5fa4889b40ade6a92014ab448, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7df92f271584baa8f0093b587f4c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 2
+--- !u!114 &114296092387654052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847390242480066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0c3ee08cdfd4fadb05d0bba3f73620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponRange: 3
@@ -100,6 +112,8 @@ MonoBehaviour:
   moving: 0
   shooting: 0
   activated: 0
+  target: {fileID: 0}
+  currentNode: {fileID: 0}
 --- !u!114 &114889340221880726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,18 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   shield: 2
---- !u!114 &114918964635403616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847390242480066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5d95dbe11d069243a46c67e147e820b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementSpeed: 2
 --- !u!212 &212575865286277302
 SpriteRenderer:
   m_ObjectHideFlags: 1

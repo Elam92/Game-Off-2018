@@ -8,8 +8,8 @@ public class HealthBar : MonoBehaviour {
 	void Start () {
 		if (gameObject.GetComponentInParent<ShipHealth> () == true) {
 			GetComponent<MeshRenderer> ().enabled = true;
-			Transform holder =  transform.localPosition;
-			holder.localPosition.y -= .5f;
+//			Transform holder =  transform.localPosition;
+//			holder.localPosition.y -= .5f;
 
 		}
 	}

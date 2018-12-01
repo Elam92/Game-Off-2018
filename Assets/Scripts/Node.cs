@@ -55,6 +55,7 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 			if (this.spriteRen.color == moveableColour && GameGrid.selectedNode.unit.GetComponent<Ship> ().moving == true) {
 				GameGrid.selectedNode.ResetNeighbours ();
 				GameGrid.selectedNode.unit.GetComponent<ShipMovement> ().MoveSprite (GameGrid.selectedNode, this);
+                Debug.Log("UNIT: " + unit.transform.name);
 			} 
 			else if (this.spriteRen.color == targetColour && GameGrid.selectedNode.unit.GetComponent<Ship> ().shooting == true) 
 			{

@@ -8,6 +8,7 @@ public class Ship : MonoBehaviour {
 	public bool activated = false;
 
     public Node currentNode;
+
 	// Use this for initialization
 	void Start () {
 	}
