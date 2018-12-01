@@ -20,18 +20,23 @@ public class ShipMovement : MonoBehaviour {
 
 	public void MoveSprite(Node current, Node target){
 		StartCoroutine (MakeMove(current,target));
-		return;
+		target.unit = GameGrid.selectedNode.unit;
+		current.unit = null;
+		target.traversable = true;
+		target.traversable = false;
+		GetComponent<Ship>().moving = false;
+		GetComponent<Ship>().shooting = true;
 	}
 
 	IEnumerator MakeMove(Node current, Node target){
 		Vector3 lookAt;
-		Vector3 test;
+		Vector3 curPosition;
 		List<Node> path = GameGrid.FindPath (current, target);
 		for (int i = 0; i < path.Count; i++) {
 			lookAt = path [i].transform.position - transform.position;
-			test = transform.position;
-			test.x = 0;
-			transform.rotation = Quaternion.FromToRotation (test, lookAt);
+			curPosition = transform.position;
+			curPosition.x = 0;
+			transform.rotation = Quaternion.FromToRotation (curPosition, lookAt);
 			transform.position = path[i].transform.position;
 			yield return new WaitForSeconds(0.2f);
 		}

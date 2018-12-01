@@ -52,30 +52,18 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 	private void FinishAction(){
 		if (GameGrid.selectedNode != null)
 		{
-			if (this.spriteRen.color == moveableColour && GameGrid.selectedNode.unit.GetComponent<Ship>().moving == true)
+			if (this.spriteRen.color == moveableColour && GameGrid.selectedNode.unit.GetComponent<Ship> ().moving == true) {
+				GameGrid.selectedNode.ResetNeighbours ();
+				GameGrid.selectedNode.unit.GetComponent<ShipMovement> ().MoveSprite (GameGrid.selectedNode, this);
+			} 
+			else if (this.spriteRen.color == targetColour && GameGrid.selectedNode.unit.GetComponent<Ship> ().shooting == true) 
 			{
-				GameGrid.selectedNode.ResetNeighbours();
-				GameGrid.selectedNode.unit.GetComponent<ShipMovement>().MoveSprite(GameGrid.selectedNode,this);
-				unit = GameGrid.selectedNode.unit;
-				GameGrid.selectedNode.unit = null;
-				GameGrid.selectedNode.traversable = true;
-				traversable = false;
-				unit.GetComponent<Ship>().moving = false;
-				unit.GetComponent<Ship>().shooting = true;
-			}
-			else if (this.spriteRen.color == targetColour && GameGrid.selectedNode.unit.GetComponent<Ship>().shooting == true)
+				GameGrid.selectedNode.ResetNeighbours ();
+				GameGrid.selectedNode.unit.GetComponent<ShipShooting> ().fireMissle (unit);
+			} 
+			else 
 			{
-				int damage = GameGrid.selectedNode.unit.GetComponent<ShipShooting>().DamageTarget();
-				unit.GetComponent<ShipHealth>().TakeDamage(damage);
-				GameGrid.selectedNode.ResetNeighbours();
-				GameObject.Instantiate(GameObject.Find("Missle"),GameGrid.selectedNode.transform).GetComponent<Missle>().target = unit;
-				GameGrid.selectedNode.unit.GetComponent<Ship>().shooting = false;
-				GameGrid.selectedNode.unit.GetComponent<Ship>().activated = true;
-				GameGrid.MovedShip();
-			}
-			else
-			{
-				GameGrid.selectedNode.ResetNeighbours();
+				GameGrid.selectedNode.ResetNeighbours ();
 			}
 		}
 	}

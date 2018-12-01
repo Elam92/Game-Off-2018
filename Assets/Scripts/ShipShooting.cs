@@ -29,4 +29,18 @@ public class ShipShooting : MonoBehaviour {
 	public int DamageTarget(){
 		return weaponDamage;
 	}
+
+	public void fireMissle (Transform unit){
+		Vector3 lookAt;
+		Vector3 curPosition;
+		lookAt = unit.position - transform.position;
+		curPosition = transform.position;
+		curPosition.x = 0;
+		transform.rotation = Quaternion.FromToRotation (curPosition, lookAt);
+		GameObject.Instantiate(GameObject.Find("Missle"),GameGrid.selectedNode.transform).GetComponent<Missle>().target = unit;
+		unit.GetComponent<ShipHealth>().TakeDamage(weaponDamage);
+		GameGrid.selectedNode.unit.GetComponent<Ship>().shooting = false;
+		GameGrid.selectedNode.unit.GetComponent<Ship>().activated = true;
+		GameGrid.MovedShip();
+	}
 }
