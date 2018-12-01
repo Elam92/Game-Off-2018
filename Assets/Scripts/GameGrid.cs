@@ -68,17 +68,14 @@ public class GameGrid : MonoBehaviour {
     // FROM HERE
     public static void SetTurn()
     {
-        Debug.Log("set turn");
-        if (playerTurn == false)
+        if (!playerTurn)
         {
-            Debug.Log("AI turn");
             GetShips("AiShip");
             actedShips = 0;
             //run Ai script and keep track of ships with movedShip(){}
         }
-        else
+		else if(playerTurn)
         {
-            Debug.Log("player turn");
             GetShips("PlayerShip");
             actedShips = 0;
             //let player act
@@ -88,7 +85,6 @@ public class GameGrid : MonoBehaviour {
     public static void GetShips(string turn) 
     {
         curShips = GameObject.FindGameObjectsWithTag(turn);
-        Debug.Log("curShips = " + curShips.Length.ToString());
     }
 
     public static void MovedShip() 
@@ -108,12 +104,12 @@ public class GameGrid : MonoBehaviour {
 
     public static void EndTurn() 
     {
-        if (playerTurn == false)
+        if (!playerTurn)
         {
             playerTurn = true;
             SetTurn();
         }
-        else
+		else if(playerTurn)
         {
             playerTurn = false;
             SetTurn();

@@ -92,7 +92,7 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 
 	public void SetSquareType(bool isMove,Node[] neighbours){
 		for (int i = 0; i < neighbours.Length; i++) {
-			if (neighbours [i].traversable && isMove) {
+			if ((neighbours [i].traversable || neighbours[i].unit == unit) && isMove) {
 				neighbours [i].SetColour (moveableColour);
 			}
 			else if (!isMove && neighbours [i].gridPosition != gridPosition) {
