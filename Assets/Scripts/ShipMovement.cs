@@ -13,7 +13,7 @@ public class ShipMovement : MonoBehaviour {
 	}
 		
 	public Node[] MoveRange(int[] gridPosition){
-		List<Node> neighbours = GameGrid.GetNeighbours (gridPosition, MovementSpeed, new List<Node> (), 0);
+		List<Node> neighbours = GameGrid.GetNeighbours (gridPosition, MovementSpeed, new List<Node> (), 0,false);
 		return neighbours.ToArray ();
 	}
 
