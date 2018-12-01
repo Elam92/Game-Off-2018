@@ -38,7 +38,7 @@ public class ShipMovement : MonoBehaviour {
 		Vector3 curPosition;
 		List<Node> path = GameGrid.FindPath (current, target);
 		for (int i = 0; i < path.Count; i++) {
-			lookAt = path [i].transform.position - transform.position;
+			lookAt = path[i].transform.position - transform.position;
 			curPosition = transform.position;
 			curPosition.x = 0;
 			transform.rotation = Quaternion.FromToRotation (curPosition, lookAt);

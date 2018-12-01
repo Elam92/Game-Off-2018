@@ -58,7 +58,6 @@ public class GameGridGenerator : MonoBehaviour
             for (int x = 0; x < gridWorldSize.x; x++)
             {
                 Transform gridNode = Instantiate(gridNodePrefab, nextPosition, Quaternion.identity);
-                float xOffset = gridNode.localScale.x / 2f;
 
                 nextPosition.x += nodeSize.x + nodeOffset.x;
 
