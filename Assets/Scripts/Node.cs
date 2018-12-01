@@ -59,12 +59,13 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 			else if (this.spriteRen.color == targetColour && GameGrid.selectedNode.unit.GetComponent<Ship> ().shooting == true) 
 			{
 				GameGrid.selectedNode.ResetNeighbours ();
-				GameGrid.selectedNode.unit.GetComponent<ShipShooting> ().fireMissle (unit);
+				GameGrid.selectedNode.unit.GetComponent<ShipShooting> ().fireMissle (this);
 			} 
 			else 
 			{
 				GameGrid.selectedNode.ResetNeighbours ();
 			}
+			//reset UI
 		}
 	}
 
@@ -75,14 +76,17 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 				GameGrid.selectedNode.unit.GetComponent<Ship>().shooting = false;
 				GameGrid.selectedNode.unit.GetComponent<Ship>().activated = true;
 				GameGrid.MovedShip();
+				//reset ui
 			}
             SetSquareType(false, neighbours);
+			GameGrid.SetUI();
 		}
 
 		else if (unit != null && unit.GetComponent<ShipMovement> () == true && !unit.GetComponent<Ship>().activated && unit.tag == "PlayerShip") {
 			Node[] neighbours = unit.GetComponent<ShipMovement>().MoveRange(gridPosition);
 			SetSquareType (true, neighbours);
 			unit.GetComponent<Ship> ().moving = true;
+			GameGrid.SetUI();
 		}
     }
 

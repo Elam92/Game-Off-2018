@@ -15,7 +15,7 @@ public class Missle : MonoBehaviour {
 			if (!gameObject.GetComponent<MeshRenderer> ().enabled) {
 				gameObject.GetComponent<MeshRenderer> ().enabled = true;
 			}
-			transform.position = Vector3.MoveTowards(transform.position, target.position, 1 * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, target.position, 4 * Time.deltaTime);
 			if (transform.position == target.transform.position) {
 				Destroy (gameObject);
 			}

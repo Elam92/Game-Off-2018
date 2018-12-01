@@ -16,13 +16,16 @@ public class ShipHealth : MonoBehaviour {
 		
 	}
 
-	public void TakeDamage(int damage){
+	public bool TakeDamage(int damage){
 		if (health == maxHealth) {
 			GameObject.Instantiate (GameObject.Find ("HealthBar"), gameObject.transform);
 		}
+		GetComponentInChildren<HealthBar>().ReduceBar(damage);
 		health -= damage;
 		if (health <= 0){
 			gameObject.SetActive(false);
+			return true;
 		}
+		return false;
 	}
 }
