@@ -55,7 +55,7 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 			if (this.spriteRen.color == moveableColour && GameGrid.selectedNode.unit.GetComponent<Ship>().moving == true)
 			{
 				GameGrid.selectedNode.ResetNeighbours();
-				GameGrid.selectedNode.unit.transform.position = this.transform.position;
+				GameGrid.selectedNode.unit.GetComponent<ShipMovement>().MoveSprite(GameGrid.selectedNode,this);
 				unit = GameGrid.selectedNode.unit;
 				GameGrid.selectedNode.unit = null;
 				GameGrid.selectedNode.traversable = true;

@@ -184,6 +184,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &11062078
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -301,6 +304,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &16439105
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -418,6 +424,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &19653002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -535,6 +544,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &39168121
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -652,6 +664,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &39500640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -769,6 +784,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &42030379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -886,6 +904,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &72232187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1003,6 +1024,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &88476631
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1120,6 +1144,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &142198179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1237,6 +1264,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &174627279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1354,6 +1384,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &184565632
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1471,6 +1504,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &221556375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1593,6 +1629,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &258995811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1710,6 +1749,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &277377746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1827,6 +1869,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &310059272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1944,6 +1989,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &310446610
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2061,6 +2109,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &322866056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2178,6 +2229,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &408206756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2295,6 +2349,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &420344241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2412,6 +2469,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &442966380
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2529,6 +2589,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &478949888
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2708,6 +2771,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &499386639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2825,6 +2891,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &540467289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2942,6 +3011,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &577497110
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3059,6 +3131,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &579015985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3176,6 +3251,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &582843194
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3293,6 +3371,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &598937637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3410,6 +3491,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &618485337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3527,6 +3611,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &639695099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3644,6 +3731,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &661483656
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3761,6 +3851,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &671878677
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3878,6 +3971,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &690937527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4058,6 +4154,9 @@ MonoBehaviour:
   traversable: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &744695620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4175,6 +4274,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &748760085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4292,6 +4394,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &753045753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4409,6 +4514,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &771375080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4526,6 +4634,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &800858034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4643,6 +4754,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &817630902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4760,6 +4874,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &863909484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4877,6 +4994,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &877602731
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4994,6 +5114,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &879538500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5111,6 +5234,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &881774823
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5228,6 +5354,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &908376906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5345,6 +5474,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &921974253
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5462,6 +5594,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &925275773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5579,6 +5714,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &934460035
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5696,6 +5834,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &936985198
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5813,6 +5954,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &946509910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5930,6 +6074,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &964628768
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6047,6 +6194,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1039759658
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6164,6 +6314,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1065568149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6317,7 +6470,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4982655035140606, guid: baaa45b9d71e5411894c7f7468bfc249, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.82
+      value: 0.49999985
       objectReference: {fileID: 0}
     - target: {fileID: 4982655035140606, guid: baaa45b9d71e5411894c7f7468bfc249, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6414,6 +6567,17 @@ Prefab:
       propertyPath: m_Name
       value: Ship1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 80bdd3d0d6d2bbe49b0304f409306ecb,
+        type: 3}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baaa45b9d71e5411894c7f7468bfc249, type: 2}
   m_IsPrefabAsset: 0
@@ -6493,6 +6657,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1255693587
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6610,6 +6777,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1261154281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6727,6 +6897,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1265523272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6845,6 +7018,22 @@ Prefab:
       propertyPath: m_TagString
       value: AiShip
       objectReference: {fileID: 0}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e7c4ab0a9398b8448bd0d4aecfa2a397,
+        type: 3}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baaa45b9d71e5411894c7f7468bfc249, type: 2}
   m_IsPrefabAsset: 0
@@ -6919,6 +7108,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1282882623
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7036,6 +7228,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1283118829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7153,6 +7348,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1308606146
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7363,6 +7561,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1323527005
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7480,6 +7681,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1332649670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7597,6 +7801,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1334256999
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7714,6 +7921,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1344930181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7831,6 +8041,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1355072238
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7948,6 +8161,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1376244628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8065,6 +8281,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1419202668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8182,6 +8401,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1419263517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8299,6 +8521,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1444002776
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8416,6 +8641,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1455217060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8533,6 +8761,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1477582514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8650,6 +8881,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1513865374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8767,6 +9001,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1529678402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8884,6 +9121,9 @@ MonoBehaviour:
   traversable: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1535434383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9001,6 +9241,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1543762662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9123,6 +9366,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1612999462
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9240,6 +9486,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1615281345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9357,6 +9606,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1619227759
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9474,6 +9726,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1633317131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9727,6 +9982,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1687650658
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9844,6 +10102,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1701017976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9961,6 +10222,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1709923337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10078,6 +10342,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1779072611
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10195,6 +10462,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1789456554
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10312,6 +10582,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1794199700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10429,6 +10702,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1806830925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10546,6 +10822,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1838718050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10663,6 +10942,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1846504698
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10780,6 +11062,9 @@ MonoBehaviour:
   traversable: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1848204991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10897,6 +11182,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1850074417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11014,6 +11302,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1858718436
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11131,6 +11422,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1860886763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11248,6 +11542,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1874087098
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11365,6 +11662,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1887766143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11482,6 +11782,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1952761262
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11599,6 +11902,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1965240299
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11716,6 +12022,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1969138723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11833,6 +12142,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1979643544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11950,6 +12262,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &1982833985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12067,6 +12382,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2002265097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12184,6 +12502,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2015483377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12301,6 +12622,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2021408245
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12418,6 +12742,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2031603396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12535,6 +12862,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2047642565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12683,6 +13013,27 @@ Prefab:
       propertyPath: m_TagString
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 55ef5d1711e214447b54f6a16b28183d,
+        type: 3}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 212419237037088596, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114881831854876130, guid: baaa45b9d71e5411894c7f7468bfc249,
+        type: 2}
+      propertyPath: MovementSpeed
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baaa45b9d71e5411894c7f7468bfc249, type: 2}
   m_IsPrefabAsset: 0
@@ -12757,6 +13108,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2078940925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12874,6 +13228,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2099846919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12991,6 +13348,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2105763105
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13108,6 +13468,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2110150519
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13225,6 +13588,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2134124009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13342,6 +13708,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2136300394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13459,6 +13828,9 @@ MonoBehaviour:
   traversable: 1
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
 --- !u!212 &2144654796
 SpriteRenderer:
   m_ObjectHideFlags: 0
