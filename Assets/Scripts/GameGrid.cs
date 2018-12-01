@@ -36,7 +36,13 @@ public class GameGrid : MonoBehaviour {
 	void Update(){
 		if (GetShips ("AiShip").Length == 0) 
 		{
-			SceneManager.LoadSceneAsync (curScene + 1);
+            int index = SceneManager.GetActiveScene().buildIndex + 1;
+
+            if (index >= SceneManager.sceneCountInBuildSettings)
+            {
+                index = 0;
+            }
+            SceneManager.LoadSceneAsync (index);
 		} 
 		else if (GetShips ("PlayerShip").Length == 0) 
 		{

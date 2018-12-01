@@ -5139,10 +5139,8 @@ MonoBehaviour:
   untraversableMask:
     serializedVersion: 2
     m_Bits: 0
-
   endTurnButton: {fileID: 1063596992}
   endGameButton: {fileID: 1314965039}
-
   curScene: 0
 --- !u!4 &723745406
 Transform:
@@ -8602,7 +8600,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d825f71fb050d41448297e00a5efe540, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
