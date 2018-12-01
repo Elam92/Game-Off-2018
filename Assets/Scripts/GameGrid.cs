@@ -21,16 +21,28 @@ public class GameGrid : MonoBehaviour {
 
     private static int actedShips = 0;
 
+	public Button endTurnButton;
+	public Button endGameButton;
+	public int curScene;
+
     private void Awake()
     {
         CalculateGrid();
-		Button[] allButtons = Button.FindObjectsOfType<Button> ();
-		Button endTurnButton = allButtons [0];
-		//Button endGameButton = allButtons [1];
 		endTurnButton.onClick.AddListener (ForceEnd);
-		//endGameButton.onClick.AddListener (End);
+		endGameButton.onClick.AddListener (End);
         SetTurn();
     }
+
+	void Update(){
+		if (GetShips ("AiShip").Length == 0) 
+		{
+			SceneManager.LoadSceneAsync (curScene + 1);
+		} 
+		else if (GetShips ("PlayerShip").Length == 0) 
+		{
+			SceneManager.LoadScene ("MainMenu");
+		}
+	}
 
 	void End()
 	{

@@ -660,6 +660,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8e604287736744eab5c0debee10ecf, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &64522707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114577205677282554, guid: b213fa10a51975247811635d0053fd99,
+    type: 2}
+  m_PrefabInternal: {fileID: 1973794538}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &69823840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,6 +4294,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c54c8329ebfa27a4298be5f4afe419a8, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &518005882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114973766890493142, guid: b213fa10a51975247811635d0053fd99,
+    type: 2}
+  m_PrefabInternal: {fileID: 1973794538}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &536739406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5039,6 +5051,9 @@ MonoBehaviour:
   untraversableMask:
     serializedVersion: 2
     m_Bits: 0
+  endTurnButton: {fileID: 518005882}
+  endGameButton: {fileID: 64522707}
+  curScene: 1
 --- !u!4 &723745406
 Transform:
   m_ObjectHideFlags: 0

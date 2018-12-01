@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AStarGrid.unity
     guid: 1ca662a40efd549b181598ae8550f23f
+  - enabled: 1
+    path: Assets/Scenes/ShipAI.unity
+    guid: 753bac1efa7fd4c76ae6a9b6dfaa1535
   m_configObjects: {}
