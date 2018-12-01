@@ -15,6 +15,20 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 	private Color32 moveableColour;
 	private Color32 targetColour;
 
+    // Cost from Start to this Node.
+    public int gCost;
+    // Cost to Goal from this Node.
+    public int hCost;
+    // Total Cost to get to Goal.
+    public int fCost
+    {
+        get {
+            return gCost + hCost;
+        }
+    }
+
+    public Node parent;
+
     private void Awake()
     {
         worldPosition = transform.position;
