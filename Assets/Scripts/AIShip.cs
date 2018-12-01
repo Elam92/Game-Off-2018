@@ -2,49 +2,83 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIShip : MonoBehaviour {
-
-    public bool moving = false;
-    public bool shooting = false;
-    public bool activated = false;
-
+public class AIShip : Ship 
+{
     public Ship target;
-    public Node currentNode;
 
-    private ShipMovement shipMovement;
+    private AIShipMovement shipMovement;
     private ShipHealth shipHealth;
-    private ShipShooting shipShooting;
+    private AIShipShooting shipShooting;
 
     void Awake()
     {
-        shipMovement = GetComponent<ShipMovement>();
+        shipMovement = GetComponent<AIShipMovement>();
         shipHealth = GetComponent<ShipHealth>();
-        shipShooting = GetComponent<ShipShooting>();
+        shipShooting = GetComponent<AIShipShooting>();
     }
 
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DoActions()
     {
-        if(Input.GetMouseButton(0))
-        {
-            FindPath();
-        }
-    }
+        GameObject[] targetShips = GameGrid.GetShips("PlayerShip");
+        int movementSpeed = shipMovement.MovementSpeed;
 
-    private void FindPath()
-    {
+        // No target, find closest one.
+        if(target == null)
+            target = shipShooting.GetClosestTarget(currentNode, targetShips);
+
+        Debug.Log(target.transform.name);
+
         List<Node> path = GameGrid.FindPath(currentNode, target.currentNode);
 
+        Color32 rndColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         for (int i = 0; i < path.Count; i++)
         {
-            Color32 rndColour = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255));
             path[i].SetColour(rndColour);
         }
+        // If out of range, get into range.
+        int index = 0;
+        if (path.Count > shipShooting.weaponRange && movementSpeed > 0)
+        {
+            Node destination = null;
+            if (movementSpeed >= path.Count)
+                // Minus 2 to not be in target's position and accounting for Count.
+                index = path.Count - 2;
+            else if (movementSpeed < path.Count)
+                index = movementSpeed - 1;
+
+            destination = path[index];
+            shipMovement.MoveSprite(currentNode, destination);
+            currentNode = destination;
+        }
+
+        // If within range, fire weapon.
+        if (((path.Count - 1) - index) <= shipShooting.weaponRange)
+        {
+            Debug.Log("FIRING MISSILE");
+            Node targetNode = path[path.Count - 1];
+            shipShooting.fireMissle(targetNode);
+            if (targetNode.unit == null)
+            {
+                target = null;
+            }
+        }
+        else
+        {
+            GameGrid.MovedShip();
+        }
     }
+
+    private void MoveToTarget()
+    {
+        shipMovement.FindPath(currentNode, target.currentNode);
+    }
+
+
+
 }

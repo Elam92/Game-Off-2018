@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1847390242480066}
+  m_RootGameObject: {fileID: 1812465042608162}
   m_IsPrefabAsset: 1
---- !u!1 &1316093043793556
+--- !u!1 &1145883037774720
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4498496111608764}
-  - component: {fileID: 212575865286277302}
+  - component: {fileID: 4468907326482354}
+  - component: {fileID: 212593069211507594}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -27,71 +27,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1847390242480066
+--- !u!1 &1812465042608162
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4322008782435226}
-  - component: {fileID: 114816507894880592}
-  - component: {fileID: 114918964635403616}
-  - component: {fileID: 114479888387491584}
-  - component: {fileID: 114889340221880726}
+  - component: {fileID: 4672274238974356}
+  - component: {fileID: 114402968752028346}
+  - component: {fileID: 114574156851068314}
+  - component: {fileID: 114403284584017484}
+  - component: {fileID: 114738457185334512}
   m_Layer: 0
-  m_Name: AIShip1
-  m_TagString: Untagged
+  m_Name: AIShip-Cruiser
+  m_TagString: AiShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4322008782435226
+--- !u!4 &4468907326482354
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847390242480066}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.49999985, y: 2.1000004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4498496111608764}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4498496111608764
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1316093043793556}
+  m_GameObject: {fileID: 1145883037774720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4322008782435226}
+  m_Father: {fileID: 4672274238974356}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114479888387491584
+--- !u!4 &4672274238974356
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812465042608162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.49999985, y: 2.1000004, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4468907326482354}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114402968752028346
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847390242480066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c4f80d5fa4889b40ade6a92014ab448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponRange: 3
-  weaponDamage: 2
---- !u!114 &114816507894880592
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847390242480066}
+  m_GameObject: {fileID: 1812465042608162}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89717ae09897748f197de828fb2123ed, type: 3}
@@ -100,37 +87,52 @@ MonoBehaviour:
   moving: 0
   shooting: 0
   activated: 0
---- !u!114 &114889340221880726
+  currentNode: {fileID: 0}
+  target: {fileID: 0}
+--- !u!114 &114403284584017484
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847390242480066}
+  m_GameObject: {fileID: 1812465042608162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7df92f271584baa8f0093b587f4c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 4
+--- !u!114 &114574156851068314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812465042608162}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc28ef66c9caaf942b8ff27aee9fc965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 3
   shield: 2
---- !u!114 &114918964635403616
+--- !u!114 &114738457185334512
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847390242480066}
+  m_GameObject: {fileID: 1812465042608162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5d95dbe11d069243a46c67e147e820b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c0c3ee08cdfd4fadb05d0bba3f73620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
---- !u!212 &212575865286277302
+  weaponRange: 2
+  weaponDamage: 2
+--- !u!212 &212593069211507594
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1316093043793556}
+  m_GameObject: {fileID: 1145883037774720}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -160,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: 1043682959
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 136e2178a9ef74bc78fc5350fc078677, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7f7b912eedab0643ba05cb759b0193e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -37,14 +37,14 @@ public class ShipShooting : MonoBehaviour {
 		curPosition = transform.position;
 		curPosition.x = 0;
 		transform.rotation = Quaternion.FromToRotation (curPosition, lookAt);
-		GameObject.Instantiate(GameObject.Find("Missle"),GameGrid.selectedNode.transform).GetComponent<Missle>().target = node.unit;
+		GameObject.Instantiate(GameObject.Find("Missle"), transform).GetComponent<Missle>().target = node.unit;
 		bool dead = node.unit.GetComponent<ShipHealth>().TakeDamage(weaponDamage);
 		if (dead) {
 			node.traversable = true;
 			node.unit = null;
 		}
-		GameGrid.selectedNode.unit.GetComponent<Ship>().shooting = false;
-		GameGrid.selectedNode.unit.GetComponent<Ship>().activated = true;
+		GetComponent<Ship>().shooting = false;
+		GetComponent<Ship>().activated = true;
 		GameGrid.MovedShip();
 	}
 }
