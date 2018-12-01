@@ -25,6 +25,13 @@ public class MainMenu : MonoBehaviour {
 
 	void Begin()
 	{
-		SceneManager.LoadScene ("AStarGrid");
+        int index = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (index >= SceneManager.sceneCountInBuildSettings)
+        {
+            index = 0;
+        }
+
+		SceneManager.LoadScene (index);
 	}
 }
