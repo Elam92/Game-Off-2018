@@ -23,6 +23,7 @@ public class ShipMovement : MonoBehaviour {
 		current.unit = null;
 		current.traversable = true; 
 		target.traversable = false;
+        GetComponent<Ship>().currentNode = target;
 		GetComponent<Ship>().moving = false;
 		GetComponent<Ship>().shooting = true;
 	}

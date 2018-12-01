@@ -16,6 +16,7 @@ public class GameGrid : MonoBehaviour {
     public static  bool playerTurn = true;
 
     private static GameObject[] curShips;
+    private static GameObject[] aiShips;
 
     private static int actedShips = 0;
 
@@ -70,14 +71,12 @@ public class GameGrid : MonoBehaviour {
     {
         if (playerTurn == false)
         {
-            curShips = GetShips("AiShip");
+            aiShips = GetShips("AiShip");
             actedShips = 0;
 
-            for (int i = 0; i < curShips.Length; i++)
+            for (int i = 0; i < aiShips.Length; i++)
             {
-                Debug.Log("AI SHIP: " + curShips[i].transform.name);
-                Debug.Log("AI COMPONENT: " + curShips[i].GetComponent<AIShip>() != null );
-                curShips[i].GetComponent<AIShip>().DoActions();
+                aiShips[i].GetComponent<AIShip>().DoActions();
             }
             //run Ai script and keep track of ships with movedShip(){}
         }
@@ -97,15 +96,31 @@ public class GameGrid : MonoBehaviour {
     public static void MovedShip() 
     {
         actedShips += 1;
-        if (actedShips >= curShips.Length)
+        if (playerTurn == true)
         {
-            foreach (GameObject ship in curShips)
+            if (actedShips >= curShips.Length)
             {
-                ship.GetComponent<Ship>().activated = false;
-                ship.GetComponent<Ship>().moving = false;
-                ship.GetComponent<Ship>().shooting = false;
+                foreach (GameObject ship in curShips)
+                {
+                    ship.GetComponent<Ship>().activated = false;
+                    ship.GetComponent<Ship>().moving = false;
+                    ship.GetComponent<Ship>().shooting = false;
+                }
+                EndTurn();
             }
-            EndTurn();
+        }
+        else
+        {
+            if(actedShips >= aiShips.Length)
+            {
+                foreach (GameObject ship in aiShips)
+                {
+                    ship.GetComponent<Ship>().activated = false;
+                    ship.GetComponent<Ship>().moving = false;
+                    ship.GetComponent<Ship>().shooting = false;
+                }
+                EndTurn();
+            }
         }
     }
 
@@ -235,7 +250,7 @@ public class GameGrid : MonoBehaviour {
 
             foreach (Node neighbour in GetNearestNeighbours(currentNode.gridPosition))
             {
-                if (neighbour.traversable == false || closedSet.Contains(neighbour))
+                if (neighbour.traversable == false && neighbour.unit == null || closedSet.Contains(neighbour))
                 {
                     continue;
                 }
