@@ -178,7 +178,7 @@ public class GameGrid : MonoBehaviour {
             for (int i = 1; i < openSet.Count; i++)
             {
                 if(openSet[i].fCost < currentNode.fCost ||
-                   openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost)
+                   openSet[i].fCost == currentNode.fCost && openSet[i].gCost < currentNode.gCost)
                 {
                     currentNode = openSet[i];
                 }
@@ -194,7 +194,7 @@ public class GameGrid : MonoBehaviour {
 
             foreach (Node neighbour in GetNearestNeighbours(currentNode.gridPosition))
             {
-                if (closedSet.Contains(neighbour))
+                if (neighbour.traversable == false || closedSet.Contains(neighbour))
                 {
                     continue;
                 }
@@ -247,6 +247,6 @@ public class GameGrid : MonoBehaviour {
 
         return 14*dstX + 10*(dstY - dstX); */
 
-        return (dstX < dstY) ? dstX : dstY;
+        return (dstX <= dstY) ? dstX : dstY;
     }
 }
