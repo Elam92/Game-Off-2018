@@ -113,12 +113,6 @@ public class GameGrid : MonoBehaviour {
         {
             if(actedShips >= aiShips.Length)
             {
-                foreach (GameObject ship in aiShips)
-                {
-                    ship.GetComponent<Ship>().activated = false;
-                    ship.GetComponent<Ship>().moving = false;
-                    ship.GetComponent<Ship>().shooting = false;
-                }
                 EndTurn();
             }
         }

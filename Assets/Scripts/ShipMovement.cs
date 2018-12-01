@@ -19,7 +19,7 @@ public class ShipMovement : MonoBehaviour {
 
 	public void MoveSprite(Node current, Node target){
 		StartCoroutine (MakeMove(current,target));
-		target.unit = GameGrid.selectedNode.unit;
+		target.unit = transform;
 		current.unit = null;
 		current.traversable = true; 
 		target.traversable = false;

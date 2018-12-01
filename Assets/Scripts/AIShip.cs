@@ -58,17 +58,20 @@ public class AIShip : Ship
         }
 
         // If within range, fire weapon.
-        if(((path.Count-1) - index) <= shipShooting.weaponRange)
+        if (((path.Count - 1) - index) <= shipShooting.weaponRange)
         {
             Debug.Log("FIRING MISSILE");
             Node targetNode = path[path.Count - 1];
             shipShooting.fireMissle(targetNode);
-            if(targetNode.unit == null)
+            if (targetNode.unit == null)
             {
                 target = null;
             }
         }
-        GameGrid.MovedShip();
+        else
+        {
+            GameGrid.MovedShip();
+        }
     }
 
     private void MoveToTarget()

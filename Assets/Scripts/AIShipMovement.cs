@@ -22,8 +22,4 @@ public class AIShipMovement : ShipMovement {
         }
     }
 
-    public void MoveToTarget()
-    {
-        
-    }
 }
