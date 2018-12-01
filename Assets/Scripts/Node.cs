@@ -70,23 +70,27 @@ public class Node : MonoBehaviour, IPointerClickHandler {
 	}
 
 	private void CurrentAction(){
-		if (unit != null && unit.GetComponent<Ship>().shooting && unit.GetComponent<ShipShooting> () == true && unit.tag == "PlayerShip") {
-			Node[] neighbours = unit.GetComponent<ShipShooting>().ShotRange(gridPosition,unit);
+		if (unit != null && unit.GetComponent<Ship> ().shooting && unit.GetComponent<ShipShooting> () == true && unit.tag == "PlayerShip") {
+			Node[] neighbours = unit.GetComponent<ShipShooting> ().ShotRange (gridPosition, unit);
 			if (neighbours.Length == 0) {
-				GameGrid.selectedNode.unit.GetComponent<Ship>().shooting = false;
-				GameGrid.selectedNode.unit.GetComponent<Ship>().activated = true;
-				GameGrid.MovedShip();
+				GameGrid.selectedNode.unit.GetComponent<Ship> ().shooting = false;
+				GameGrid.selectedNode.unit.GetComponent<Ship> ().activated = true;
+				GameGrid.MovedShip ();
 				//reset ui
 			}
-            SetSquareType(false, neighbours);
-			GameGrid.SetUI();
-		}
-
-		else if (unit != null && unit.GetComponent<ShipMovement> () == true && !unit.GetComponent<Ship>().activated && unit.tag == "PlayerShip") {
-			Node[] neighbours = unit.GetComponent<ShipMovement>().MoveRange(gridPosition);
+			SetSquareType (false, neighbours);
+			GameGrid.SetUI ();
+		} 
+		else if (unit != null && unit.GetComponent<ShipMovement> () == true && !unit.GetComponent<Ship> ().activated && unit.tag == "PlayerShip") 
+		{
+			Node[] neighbours = unit.GetComponent<ShipMovement> ().MoveRange (gridPosition);
 			SetSquareType (true, neighbours);
 			unit.GetComponent<Ship> ().moving = true;
-			GameGrid.SetUI();
+			GameGrid.SetUI ();
+		} 
+		else if (unit != null && unit.tag == "AiShip") 
+		{
+			GameGrid.SetUI ();
 		}
     }
 

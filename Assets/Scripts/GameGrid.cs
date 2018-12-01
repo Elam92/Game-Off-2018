@@ -262,7 +262,7 @@ public class GameGrid : MonoBehaviour {
             {
                 if (neighbour.traversable == false && neighbour.unit == null || 
                     closedSet.Contains(neighbour) || 
-                    neighbour.unit != null && neighbour.unit.tag.Equals("AiShip"))
+					neighbour.unit != null && neighbour.unit.tag.Equals(from.unit.tag))
                 {
                     continue;
                 }
