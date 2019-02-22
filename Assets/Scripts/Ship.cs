@@ -1,20 +1,127 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Ship : MonoBehaviour {
-	public bool moving = false;
-	public bool shooting = false;
-	public bool activated = false;
+[RequireComponent(typeof(ShipMovement))]
+[RequireComponent(typeof(ShipShooting))]
+[RequireComponent(typeof(ShipHealth))]
+public class Ship : MonoBehaviour
+{
+    public bool active = false;
+    public bool turnFinished = false;
 
-    public Node currentNode;
+    protected StateMachine<ShipStateInputs> stateMachine;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected ShipMovement shipMovement;
+    protected ShipShooting shipWeapon;
+    protected ShipHealth shipHealth;
+
+    [SerializeField]
+    protected Node currentNode;
+
+
+    protected void Awake()
+    {
+        shipMovement = GetComponent<ShipMovement>();
+        shipWeapon = GetComponent<ShipShooting>();
+        shipHealth = GetComponent<ShipHealth>();
+
+        shipHealth.OnDeath += Death;
+    }
+
+    // Use this for initialization
+    protected void Start()
+    {
+        var shipIdleState = new ShipIdleState(this);
+        var shipAttackState = new ShipAttackState(this, shipIdleState);
+        var shipMoveState = new ShipMoveState(this, shipAttackState);
+        var shipSelectedState = new ShipSelectedState(this, shipMoveState);
+        var shipIsHitState = new ShipIsHitState(this, shipIdleState);
+
+        shipIdleState.AddTransition(ShipStateInputs.Selected, shipSelectedState);
+        shipIdleState.AddTransition(ShipStateInputs.IsHit, shipIsHitState);
+
+        shipSelectedState.AddTransition(ShipStateInputs.Attack, shipAttackState);
+        shipSelectedState.AddTransition(ShipStateInputs.Move, shipMoveState);
+        shipSelectedState.AddTransition(ShipStateInputs.Idle, shipIdleState);
+
+        shipIsHitState.AddTransition(ShipStateInputs.Idle, shipIdleState);
+
+        stateMachine = new StateMachine<ShipStateInputs>(shipIdleState);
+    }
+
+    // Update is called once per frame
+    protected void Update()
+    {
+        stateMachine.Update();
+
+        if (!turnFinished)
+        {
+
+        }
+    }
+
+    private void Death()
+    {
+        currentNode.traversable = true;
+        currentNode.unit = null;
+        Destroy(gameObject);
+    }
+
+    public int GetHealth()
+    {
+        return shipHealth.GetCurrentHealth();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        shipHealth.TakeDamage(damage);
+        stateMachine.Transition(ShipStateInputs.IsHit);
+    }
+
+    public void Fire(Node targetNode)
+    {
+        shipWeapon.Fire(targetNode);
+    }
+
+    public bool IsFiring()
+    {
+        return shipWeapon.IsFiring();
+    }
+
+    public Node[] ShowWeaponRange()
+    {
+        return shipWeapon.ShowWeaponRange(GetCurrentNode().gridPosition);
+    }
+
+    public int GetWeaponRange()
+    {
+        return shipWeapon.GetWeaponRange();
+    }
+
+    public void Move(Node targetNode)
+    {
+        shipMovement.MoveShip(currentNode, targetNode);
+    }
+
+    public bool IsMoving()
+    {
+        return shipMovement.IsMoving();
+    }
+
+    public Node[] ShowMovementRange()
+    {
+        return shipMovement.ShowMoveRange(currentNode);
+    }
+
+    public int GetMovementSpeed()
+    {
+        return shipMovement.GetMovementSpeed();
+    }
+
+    public Node GetCurrentNode()
+    {
+        return currentNode;
+    }
 }

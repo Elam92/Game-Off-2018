@@ -6,34 +6,20 @@ public class AIShip : Ship
 {
     public Ship target;
 
-    private AIShipMovement shipMovement;
-    private ShipHealth shipHealth;
-    private AIShipShooting shipShooting;
-
-    void Awake()
-    {
-        shipMovement = GetComponent<AIShipMovement>();
-        shipHealth = GetComponent<ShipHealth>();
-        shipShooting = GetComponent<AIShipShooting>();
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    private List<Node> pathToTarget;
 
     public void DoActions()
     {
         GameObject[] targetShips = GameGrid.GetShips("PlayerShip");
-        int movementSpeed = shipMovement.MovementSpeed;
+        int movementSpeed = GetMovementSpeed();
+        Node currentNode = GetCurrentNode();
 
         // No target, find closest one.
-        target = shipShooting.GetClosestTarget(currentNode, targetShips);
+        target = GetClosestTarget(currentNode, targetShips);
 
         Debug.Log(target.transform.name);
 
-        List<Node> path = GameGrid.FindPath(currentNode, target.currentNode);
+        List<Node> path = GameGrid.FindPath(currentNode, target.GetCurrentNode());
 
         /*
         Color32 rndColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
@@ -45,7 +31,7 @@ public class AIShip : Ship
 
         // If out of range, get into range.
         int index = 0;
-        if (path.Count > shipShooting.weaponRange && movementSpeed > 0)
+        if (path.Count > GetWeaponRange() && movementSpeed > 0)
         {
             Node destination = null;
             if (movementSpeed >= path.Count)
@@ -55,16 +41,16 @@ public class AIShip : Ship
                 index = movementSpeed - 1;
 
             destination = path[index];
-            shipMovement.MoveSprite(currentNode, destination);
+            Move(destination);
             currentNode = destination;
         }
 
         // If within range, fire weapon.
-        if (((path.Count - 1) - index) <= shipShooting.weaponRange)
+        if (((path.Count - 1) - index) <= GetWeaponRange())
         {
             Debug.Log("FIRING MISSILE");
             Node targetNode = path[path.Count - 1];
-            shipShooting.fireMissle(targetNode);
+            Fire(targetNode);
             if (targetNode.unit == null)
             {
                 target = null;
@@ -72,15 +58,47 @@ public class AIShip : Ship
         }
         else
         {
-            GameGrid.MovedShip();
+//            GameGrid.MovedShip();
         }
     }
 
     private void MoveToTarget()
     {
-        shipMovement.FindPath(currentNode, target.currentNode);
+        FindPath(GetCurrentNode(), target.GetCurrentNode());
     }
 
+    // Moving to target.
+    private void FindPath(Node currentNode, Node target)
+    {
+        pathToTarget = GameGrid.FindPath(currentNode, target);
 
+        Color32 rndColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        for (int i = 0; i < pathToTarget.Count; i++)
+        {
+            pathToTarget[i].SetColour(rndColour);
+        }
+    }
+
+    // Shooting.
+    private Ship GetClosestTarget(Node currentNode, GameObject[] targetShips)
+    {
+        List<Node> shortestPath = new List<Node>();
+        Ship targetShip = targetShips[0].GetComponent<Ship>();
+
+        shortestPath = GameGrid.FindPath(currentNode, targetShip.GetCurrentNode());
+
+        for (int i = 1; i < targetShips.Length; i++)
+        {
+            Ship ship = targetShips[i].GetComponent<Ship>();
+
+            List<Node> aPath = GameGrid.FindPath(currentNode, ship.GetCurrentNode());
+            if (aPath.Count < shortestPath.Count)
+            {
+                shortestPath = aPath;
+                targetShip = ship;
+            }
+        }
+        return targetShip;
+    }
 
 }

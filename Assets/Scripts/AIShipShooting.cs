@@ -10,13 +10,13 @@ public class AIShipShooting : ShipShooting
         List<Node> shortestPath = new List<Node>();
         Ship targetShip = targetShips[0].GetComponent<Ship>();
 
-        shortestPath = GameGrid.FindPath(currentNode, targetShip.currentNode);
+        shortestPath = GameGrid.FindPath(currentNode, targetShip.GetCurrentNode());
 
         for (int i = 1; i < targetShips.Length; i++)
         {
             Ship ship = targetShips[i].GetComponent<Ship>();
 
-            List<Node> aPath = GameGrid.FindPath(currentNode, ship.currentNode);
+            List<Node> aPath = GameGrid.FindPath(currentNode, ship.GetCurrentNode());
             if(aPath.Count < shortestPath.Count)
             {
                 shortestPath = aPath;

@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (gameObject.GetComponentInParent<ShipHealth> () == true) {
-			healthShrink = transform.localScale.y / gameObject.GetComponentInParent<ShipHealth> ().health;
+			healthShrink = transform.localScale.y / gameObject.GetComponentInParent<Ship>().GetHealth();
 			GetComponent<MeshRenderer> ().enabled = true;
 			transform.localPosition = new Vector3 (0f, -.5f, 0f);
 		}
