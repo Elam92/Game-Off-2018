@@ -30,14 +30,7 @@ public class BattleController : MonoBehaviour
                 if(selectedShip.turnFinished)
                 {
                     Debug.Log(selectedShip + " IS DONE");
-                    if(selectedShip.tag.Equals("PlayerShip"))
-                    {
-                        PlayerShipDone(selectedShip);
-                    }
-                    else
-                    {
-                        AIShipDone(selectedShip);
-                    }
+                    ShipDone(selectedShip);
                 }
             }
             selectedShip = value;
@@ -118,15 +111,10 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    private void PlayerShipDone(Ship ship)
+    private void ShipDone(Ship ship)
     {
         usedShips.Add(ship);
         Debug.Log("USED SHIPS: " + usedShips.Count);
-    }
-
-    private void AIShipDone(Ship ship)
-    {
-        usedShips.Add(ship);
     }
 
     public bool IsPlayerTurn()

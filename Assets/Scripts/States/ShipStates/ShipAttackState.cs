@@ -30,7 +30,6 @@ public class ShipAttackState : State<ShipStateInputs>
 
     public override void OnStateExit()
     {
-        ship.active = false;
         ship.turnFinished = true;
         BattleController.Instance.SelectedShip = null;
 
