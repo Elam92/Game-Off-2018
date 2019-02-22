@@ -62,13 +62,14 @@ public class GameGrid : MonoBehaviour
     public static void SetUI()
     {
         GameObject current = GameObject.Find("HealthValue");
-        current.GetComponent<Text>().text = BattleController.SelectedShip.GetHealth().ToString();
+        Ship selectedShip = BattleController.Instance.SelectedShip;
+        current.GetComponent<Text>().text = selectedShip.GetHealth().ToString();
         current = GameObject.Find("SpeedValue");
-        current.GetComponent<Text>().text = BattleController.SelectedShip.GetMovementSpeed().ToString();
+        current.GetComponent<Text>().text = selectedShip.GetMovementSpeed().ToString();
         current = GameObject.Find("RangeValue");
-        current.GetComponent<Text>().text = BattleController.SelectedShip.GetWeaponRange().ToString();
+        current.GetComponent<Text>().text = selectedShip.GetWeaponRange().ToString();
         current = GameObject.Find("DamageValue");
-        current.GetComponent<Text>().text = BattleController.SelectedShip.GetWeaponRange().ToString();
+        current.GetComponent<Text>().text = selectedShip.GetWeaponRange().ToString();
     }
 
     public void CalculateGrid()

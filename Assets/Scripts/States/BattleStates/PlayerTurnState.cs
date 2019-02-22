@@ -18,10 +18,19 @@ public class PlayerTurnState : State<BattleStateInputs>
 
     public override void OnStateEnter()
     {
-        Debug.Log("ENTER PLAYERTURNSTATE");
+        Debug.Log("ENTER PLAYER'S TURN");
         foreach(Ship ship in playerShips)
         {
             ship.turnFinished = false;
+        }
+    }
+
+    public override void OnStateExit()
+    {
+        Debug.Log("LEAVING PLAYERTURNSTATE");
+        foreach (Ship ship in playerShips)
+        {
+            ship.turnFinished = true;
         }
     }
 
@@ -33,14 +42,5 @@ public class PlayerTurnState : State<BattleStateInputs>
         }
 
         return null;
-    }
-
-    public override void OnStateExit()
-    {
-        Debug.Log("LEAVING PLAYERTURNSTATE");
-        foreach (Ship ship in playerShips)
-        {
-            ship.turnFinished = true;
-        }
     }
 }

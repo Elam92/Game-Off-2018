@@ -13,7 +13,7 @@ public class ShipSelectedState : State<ShipStateInputs>
 
     public override void OnStateEnter()
     {
-        BattleController.SelectedShip = ship;
+        BattleController.Instance.SelectedShip = ship;
     }
 
     public override State<ShipStateInputs> Update()

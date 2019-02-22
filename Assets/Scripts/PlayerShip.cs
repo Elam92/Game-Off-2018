@@ -8,10 +8,10 @@ public class PlayerShip : Ship, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log(transform.name);
-        Debug.Log(BattleController.IsPlayerTurn());
-        if (BattleController.IsPlayerTurn() && !turnFinished)
+        Debug.Log(BattleController.Instance.IsPlayerTurn());
+        if (BattleController.Instance.IsPlayerTurn() && !turnFinished)
         {
-            if (!active && BattleController.SelectedShip == null)
+            if (!active && BattleController.Instance.SelectedShip == null)
             {
                 stateMachine.Transition(ShipStateInputs.Selected);
                 active = true;

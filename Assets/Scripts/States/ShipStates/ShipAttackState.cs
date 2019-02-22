@@ -6,6 +6,7 @@ public class ShipAttackState : State<ShipStateInputs>
     private readonly State<ShipStateInputs> nextState;
     private bool hasAttacked = false;
     private bool hasNoTargets = false;
+    private Node[] targetNodes;
 
     public ShipAttackState(Ship ship, State<ShipStateInputs> nextState)
     {
@@ -16,26 +17,28 @@ public class ShipAttackState : State<ShipStateInputs>
     public override void OnStateEnter()
     {
         Debug.Log(ship.transform.name + " ENTERING ATTACK STATE");
-        Node[] nodes = ship.ShowWeaponRange();
-        if(nodes.Length == 0)
+        targetNodes = ship.ShowWeaponRange();
+        if(targetNodes.Length == 0)
         {
             hasNoTargets = true;
         }
         else
         {
-            GameGrid.UpdateNodeStates(nodes, GameGrid.NodeStates.Targetable, node => node.isWithinWeaponRange = true);
+            GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Targetable, node => node.isWithinWeaponRange = true);
         }
     }
 
     public override void OnStateExit()
     {
-
-        BattleController.SelectedShip = null;
-        GameGrid.UpdateNodeStates(ship.ShowWeaponRange(), GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
         ship.active = false;
         ship.turnFinished = true;
+        BattleController.Instance.SelectedShip = null;
+
+        GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
+
         hasAttacked = false;
         hasNoTargets = false;
+        targetNodes = null;
     }
 
     public override State<ShipStateInputs> Update()

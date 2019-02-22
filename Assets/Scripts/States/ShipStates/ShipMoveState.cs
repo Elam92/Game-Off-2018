@@ -5,6 +5,7 @@ public class ShipMoveState : State<ShipStateInputs>
     private Ship ship;
     private readonly State<ShipStateInputs> nextState;
     private bool hasMoved = false;
+    private Node[] targetNodes;
 
     public ShipMoveState(Ship ship, State<ShipStateInputs> nextState)
     {
@@ -15,14 +16,15 @@ public class ShipMoveState : State<ShipStateInputs>
     public override void OnStateEnter()
     {
         Debug.Log(ship.transform.name + " ENTERING MOVE STATE");
-        Node[] nodes = ship.ShowMovementRange();
-        GameGrid.UpdateNodeStates(nodes, GameGrid.NodeStates.Moveable, node => node.isWithinMovementRange = true);
+        targetNodes = ship.ShowMovementRange();
+        GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Moveable, node => node.isWithinMovementRange = true);
     }
 
     public override void OnStateExit()
     {
         hasMoved = false;
-        GameGrid.UpdateNodeStates(ship.ShowMovementRange(), GameGrid.NodeStates.Normal, node => node.isWithinMovementRange = false);
+        GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Normal, node => node.isWithinMovementRange = false);
+        targetNodes = null;
     }
 
     public override State<ShipStateInputs> Update()

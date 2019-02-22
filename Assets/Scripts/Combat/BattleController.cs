@@ -8,12 +8,15 @@ public class BattleController : MonoBehaviour
     public Transform aiShipContainer;
 
     private StateMachine<BattleStateInputs> stateMachine;
+   
     private List<Ship> playerShips;
     private List<AIShip> aiShips;
     private List<Ship> usedShips;
+    private Ship selectedShip;
 
-    private static Ship selectedShip;
-    public static Ship SelectedShip
+    public static BattleController Instance { get; private set; }
+
+    public Ship SelectedShip
     {
         get
         {
@@ -24,12 +27,36 @@ public class BattleController : MonoBehaviour
             if (selectedShip != null)
             {
                 selectedShip.active = false;
+                if(selectedShip.turnFinished)
+                {
+                    Debug.Log(selectedShip + " IS DONE");
+                    if(selectedShip.tag.Equals("PlayerShip"))
+                    {
+                        PlayerShipDone(selectedShip);
+                    }
+                    else
+                    {
+                        AIShipDone(selectedShip);
+                    }
+                }
             }
             selectedShip = value;
         }
     }
 
     private static bool isPlayerTurn;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     // Use this for initialization
     private void Start()
@@ -91,19 +118,18 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    public void PlayerShipDone(Ship ship)
+    private void PlayerShipDone(Ship ship)
     {
         usedShips.Add(ship);
-        playerShips.Remove(ship);
+        Debug.Log("USED SHIPS: " + usedShips.Count);
     }
 
-    public void AIShipDone(AIShip ship)
+    private void AIShipDone(Ship ship)
     {
         usedShips.Add(ship);
-        aiShips.Remove(ship);
     }
 
-    public static bool IsPlayerTurn()
+    public bool IsPlayerTurn()
     {
         return isPlayerTurn;
     }
