@@ -128,10 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d09af9dee5b4d5a9b1dbb3d3f8eca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moving: 0
-  shooting: 0
-  activated: 0
+  active: 0
   turnFinished: 0
+  currentNode: {fileID: 0}
 --- !u!114 &114789288822768338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSFX: {fileID: 8300000, guid: d54b5a85971422e42aa695f2a95a78a7, type: 3}
-  movementSpeed: 1
+  movementSpeed: 3
 --- !u!114 &114339135713705972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,9 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4f80d5fa4889b40ade6a92014ab448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireSFX: {fileID: 8300000, guid: a00e4c62d951b41498948ca5fd8aef06, type: 3}
   weaponRange: 1
   weaponDamage: 2
-  fireSFX: {fileID: 8300000, guid: a00e4c62d951b41498948ca5fd8aef06, type: 3}
 --- !u!114 &114800347282896494
 MonoBehaviour:
   m_ObjectHideFlags: 0

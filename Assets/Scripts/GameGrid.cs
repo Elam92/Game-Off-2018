@@ -16,7 +16,6 @@ public class GameGrid : MonoBehaviour
     }
     public LayerMask untraversableMask;
 
-    public static Node selectedNode;
     public static bool playerTurn = true;
 
     private static Node[,] grid;
@@ -63,13 +62,13 @@ public class GameGrid : MonoBehaviour
     public static void SetUI()
     {
         GameObject current = GameObject.Find("HealthValue");
-        current.GetComponent<Text>().text = selectedNode.unit.GetComponent<Ship>().GetHealth().ToString();
+        current.GetComponent<Text>().text = BattleController.SelectedShip.GetHealth().ToString();
         current = GameObject.Find("SpeedValue");
-        current.GetComponent<Text>().text = selectedNode.unit.GetComponent<Ship>().GetMovementSpeed().ToString();
+        current.GetComponent<Text>().text = BattleController.SelectedShip.GetMovementSpeed().ToString();
         current = GameObject.Find("RangeValue");
-        current.GetComponent<Text>().text = selectedNode.unit.GetComponent<Ship>().GetWeaponRange().ToString();
+        current.GetComponent<Text>().text = BattleController.SelectedShip.GetWeaponRange().ToString();
         current = GameObject.Find("DamageValue");
-        current.GetComponent<Text>().text = selectedNode.unit.GetComponent<Ship>().GetWeaponRange().ToString();
+        current.GetComponent<Text>().text = BattleController.SelectedShip.GetWeaponRange().ToString();
     }
 
     public void CalculateGrid()

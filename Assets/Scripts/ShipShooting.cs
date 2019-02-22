@@ -20,6 +20,11 @@ public class ShipShooting : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    public int GetWeaponDamage()
+    {
+        return weaponDamage;
+    }
+
     public int GetWeaponRange()
     {
         return weaponRange;
@@ -43,17 +48,6 @@ public class ShipShooting : MonoBehaviour
         return neighbours.ToArray();
     }
 
-    public Node[] ResetRange(int[] gridPosition)
-    {
-        List<Node> neighbours = GameGrid.GetNeighbours(gridPosition, weaponRange, new List<Node>(), 0, true);
-        return neighbours.ToArray();
-    }
-
-    public int DamageTarget()
-    {
-        return weaponDamage;
-    }
-
     public void Fire(Node node)
     {
         Vector3 lookAt;
@@ -73,5 +67,11 @@ public class ShipShooting : MonoBehaviour
         }
 
         isFiring = true;
+
+        Ship targetShip = node.GetComponent<Ship>();
+        if(targetShip != null)
+        {
+            targetShip.TakeDamage(weaponDamage);
+        }
     }
 }

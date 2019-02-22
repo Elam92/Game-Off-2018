@@ -10,6 +10,8 @@ public class Node : MonoBehaviour {
     public bool traversable = true;
     // Is the node within a ship's movement range?
     public bool isWithinMovementRange = false;
+    // Is the node within a ship's weapon range?
+    public bool isWithinWeaponRange = false;
     // The position of the node in world space.
     public Vector3 worldPosition;
     // The position of the node inside of a grid.

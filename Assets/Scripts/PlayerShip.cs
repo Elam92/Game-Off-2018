@@ -11,15 +11,8 @@ public class PlayerShip : Ship, IPointerClickHandler
         Debug.Log(BattleController.IsPlayerTurn());
         if (BattleController.IsPlayerTurn() && !turnFinished)
         {
-            if (BattleController.SelectedShip != null && !BattleController.SelectedShip.Equals(this))
+            if (!active && BattleController.SelectedShip == null)
             {
-                //GameGrid.selectedNode.ResetNeighbours();
-                //GameGrid.UpdateNodeStates(GameGrid.selectedNode.);
-            }
-
-            if (!active)
-            {
-                GameGrid.selectedNode = GetCurrentNode();
                 stateMachine.Transition(ShipStateInputs.Selected);
                 active = true;
             }

@@ -21,7 +21,10 @@ public class BattleController : MonoBehaviour
         }
         set
         {
-
+            if (selectedShip != null)
+            {
+                selectedShip.active = false;
+            }
             selectedShip = value;
         }
     }
@@ -36,13 +39,13 @@ public class BattleController : MonoBehaviour
 
         // Add Ships in Scene
         playerShips = new List<Ship>();
-        foreach(Transform ship in playerShipContainer)
+        foreach (Transform ship in playerShipContainer)
         {
             playerShips.Add(ship.GetComponent<Ship>());
         }
 
         aiShips = new List<AIShip>();
-        foreach(Transform aiShip in aiShipContainer)
+        foreach (Transform aiShip in aiShipContainer)
         {
             aiShips.Add(aiShip.GetComponent<AIShip>());
         }
@@ -67,9 +70,9 @@ public class BattleController : MonoBehaviour
     {
         stateMachine.Update();
 
-        if(isPlayerTurn)
+        if (isPlayerTurn)
         {
-            if(usedShips.Count == playerShipContainer.childCount)
+            if (usedShips.Count == playerShipContainer.childCount)
             {
                 stateMachine.Transition(BattleStateInputs.AITurn);
                 usedShips.Clear();
@@ -78,7 +81,7 @@ public class BattleController : MonoBehaviour
         }
         else
         {
-            if(usedShips.Count == aiShipContainer.childCount)
+            if (usedShips.Count == aiShipContainer.childCount)
             {
                 stateMachine.Transition(BattleStateInputs.PlayerTurn);
                 usedShips.Clear();
