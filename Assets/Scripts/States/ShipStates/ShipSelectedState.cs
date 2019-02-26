@@ -14,6 +14,7 @@ public class ShipSelectedState : State<ShipStateInputs>
     public override void OnStateEnter()
     {
         BattleController.Instance.SelectedShip = ship;
+        ship.active = true;
     }
 
     public override State<ShipStateInputs> Update()

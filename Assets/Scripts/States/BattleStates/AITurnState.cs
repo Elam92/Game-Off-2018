@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class AITurnState : State<BattleStateInputs>
 {
-
+    private AI ai;
     private List<AIShip> aiShips;
     private BattleController controller;
     private State<BattleStateInputs> nextState;
 
-    public AITurnState(BattleController controller, List<AIShip> aiShips, State<BattleStateInputs> nextState)
+    public AITurnState(BattleController controller, AI ai, State<BattleStateInputs> nextState)
     {
         this.controller = controller;
-        this.aiShips = aiShips;
+        this.ai = ai;
         this.nextState = nextState;
     }
 
     public override void OnStateEnter()
     {
         Debug.Log("ENTER AITURNSTATE");
+        ai.Initialize();
     }
 
     public override State<BattleStateInputs> Update()
     {
-        if (aiShips.Count <= 0)
+        if (ai.GetShips().Count <= 0 || ai.GetTargetShips().Count <= 0)
         {
             return nextState;
         }
+
+        ai.DoActions();
 
         return null;
     }

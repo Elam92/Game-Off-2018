@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,10 +29,26 @@ public class Ship : MonoBehaviour
         shipHealth = GetComponent<ShipHealth>();
 
         shipHealth.OnDeath += Death;
+
+        if(currentNode == null)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Grid"));
+            if(hit.collider != null)
+            {
+                Node node = hit.transform.GetComponent<Node>();
+
+                if(node != null)
+                {
+                    currentNode = node;
+                    Debug.Log("CONNECTING : " + transform.name);
+                    node.unit = transform;
+                }
+            }
+        }
     }
 
     // Use this for initialization
-    protected void Start()
+    protected virtual void Start()
     {
         var shipIdleState = new ShipIdleState(this);
         var shipAttackState = new ShipAttackState(this, shipIdleState);
@@ -55,14 +72,9 @@ public class Ship : MonoBehaviour
     protected void Update()
     {
         stateMachine.Update();
-
-        if (!turnFinished)
-        {
-
-        }
     }
 
-    private void Death()
+    private void Death(object sender, EventArgs e)
     {
         currentNode.traversable = true;
         currentNode.unit = null;
@@ -103,6 +115,7 @@ public class Ship : MonoBehaviour
     public void Move(Node targetNode)
     {
         shipMovement.MoveShip(currentNode, targetNode);
+        currentNode = targetNode;
     }
 
     public bool IsMoving()

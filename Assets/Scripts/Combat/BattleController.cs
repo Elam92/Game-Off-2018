@@ -70,8 +70,10 @@ public class BattleController : MonoBehaviour
             aiShips.Add(aiShip.GetComponent<AIShip>());
         }
 
+        AISimple ai = new AISimple(aiShips, playerShips);
+
         var finishState = new FinishBattleState(this);
-        var aiTurnState = new AITurnState(this, aiShips, finishState);
+        var aiTurnState = new AITurnState(this, ai, finishState);
         var playerTurnState = new PlayerTurnState(this, playerShips, finishState);
         var initializeState = new InitializeBattleState(this, playerShips, playerTurnState);
 
@@ -106,7 +108,6 @@ public class BattleController : MonoBehaviour
                 stateMachine.Transition(BattleStateInputs.PlayerTurn);
                 usedShips.Clear();
                 isPlayerTurn = true;
-                selectedShip = null;
             }
         }
     }

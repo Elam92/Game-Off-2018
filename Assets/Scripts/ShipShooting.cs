@@ -68,9 +68,11 @@ public class ShipShooting : MonoBehaviour
 
         isFiring = true;
 
-        Ship targetShip = node.GetComponent<Ship>();
+        Ship targetShip = node.unit.GetComponent<Ship>();
+        Debug.Log("TARGET SHIP: " + targetShip.name);
         if(targetShip != null)
         {
+            Debug.Log("TAKING DAMAGE");
             targetShip.TakeDamage(weaponDamage);
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.016223663, g: 0.014705494, b: 0.01387946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -185,6 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -311,6 +313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -437,6 +441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -597,6 +603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -804,6 +812,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -930,6 +940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1056,6 +1068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1182,6 +1196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1308,6 +1324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1434,6 +1452,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1558,8 +1578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 259389583}
+  unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1686,6 +1708,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1812,6 +1836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -1938,6 +1964,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2034,7 +2062,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentNode
       value: 
-      objectReference: {fileID: 1132743458}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675109f1d10c895419b254752fdd5b0e, type: 3}
 --- !u!4 &155722646 stripped
@@ -2116,6 +2144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2242,6 +2272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2368,6 +2400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2494,6 +2528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2621,6 +2657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2747,6 +2785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2873,6 +2913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -2999,6 +3041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -3125,6 +3169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -3221,7 +3267,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentNode
       value: 
-      objectReference: {fileID: 120522397}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fc86aebeac54758846e9bbd729bfa4, type: 3}
 --- !u!4 &259389583 stripped
@@ -3303,6 +3349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -3429,6 +3477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -3555,6 +3605,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -3730,6 +3782,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -3907,6 +3961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -4033,6 +4089,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -4159,6 +4217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -4285,6 +4345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -4513,6 +4575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -4675,7 +4739,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentNode
       value: 
-      objectReference: {fileID: 1331429306}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c54c8329ebfa27a4298be5f4afe419a8, type: 3}
 --- !u!1 &536739406
@@ -4751,6 +4815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -4877,6 +4943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -5003,6 +5071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -5127,8 +5197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 1144549310}
+  unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -5255,6 +5327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -5381,6 +5455,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -5469,7 +5545,6 @@ MonoBehaviour:
     m_Bits: 0
   endTurnButton: {fileID: 1063596992}
   endGameButton: {fileID: 1314965039}
-  curScene: 0
 --- !u!4 &723745406
 Transform:
   m_ObjectHideFlags: 0
@@ -5583,6 +5658,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -5709,6 +5786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -5835,6 +5914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -6037,6 +6118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -6163,6 +6246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -6289,6 +6374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -6529,6 +6616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -6655,6 +6744,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -6781,6 +6872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -6907,6 +7000,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -7033,6 +7128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -7159,6 +7256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -7285,6 +7384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -7423,6 +7524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -7654,6 +7757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -7778,8 +7883,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 155722646}
+  unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -7880,7 +7987,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentNode
       value: 
-      objectReference: {fileID: 587075453}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fc86aebeac54758846e9bbd729bfa4, type: 3}
 --- !u!4 &1144549310 stripped
@@ -7962,6 +8069,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -8088,6 +8197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -8428,6 +8539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -8554,6 +8667,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -8680,6 +8795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -8807,6 +8924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -8933,6 +9052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -9059,6 +9180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -9393,6 +9516,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -9517,8 +9642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 743675992}
+  unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -9643,8 +9770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 443365109}
+  unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -9771,6 +9900,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -9897,6 +10028,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10021,8 +10154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 2007588986}
+  unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10149,6 +10284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10275,6 +10412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10401,6 +10540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10533,6 +10674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10659,6 +10802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10783,8 +10928,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 1239082208}
+  unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -10911,6 +11058,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11037,6 +11186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11163,6 +11314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11289,6 +11442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11415,6 +11570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11590,6 +11747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11716,6 +11875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11842,6 +12003,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -11974,6 +12137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12100,6 +12265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12226,6 +12393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12352,6 +12521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12478,6 +12649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12604,6 +12777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12730,6 +12905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12856,6 +13033,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -12982,6 +13161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -13106,8 +13287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b692ddca1b0465db7133936bd452af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 418411700}
+  unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -13234,6 +13417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -13394,6 +13579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -13521,6 +13708,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 0
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -13647,6 +13836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -13773,6 +13964,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -13899,6 +14092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -14393,6 +14588,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -14519,6 +14716,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -14651,6 +14850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -14777,6 +14978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -14903,6 +15106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -15096,6 +15301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -15222,6 +15429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -15348,6 +15557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -15474,6 +15685,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0
@@ -15600,6 +15813,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   traversable: 1
+  isWithinMovementRange: 0
+  isWithinWeaponRange: 0
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: 
   gCost: 0

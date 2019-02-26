@@ -5,100 +5,40 @@ using UnityEngine;
 public class AIShip : Ship 
 {
     public Ship target;
-
     private List<Node> pathToTarget;
 
-    public void DoActions()
+    protected override void Start()
     {
-        GameObject[] targetShips = GameGrid.GetShips("PlayerShip");
-        int movementSpeed = GetMovementSpeed();
-        Node currentNode = GetCurrentNode();
+        var shipIdleState = new ShipIdleState(this);
+        var shipAttackState = new ShipAIAttackState(this, shipIdleState);
+        var shipMoveState = new ShipAIMoveState(this, shipAttackState);
+        var shipSelectedState = new ShipSelectedState(this, shipMoveState);
+        var shipIsHitState = new ShipIsHitState(this, shipIdleState);
 
-        // No target, find closest one.
-        target = GetClosestTarget(currentNode, targetShips);
+        shipIdleState.AddTransition(ShipStateInputs.Selected, shipSelectedState);
+        shipIdleState.AddTransition(ShipStateInputs.IsHit, shipIsHitState);
 
-        Debug.Log(target.transform.name);
+        shipSelectedState.AddTransition(ShipStateInputs.Attack, shipAttackState);
+        shipSelectedState.AddTransition(ShipStateInputs.Move, shipMoveState);
+        shipSelectedState.AddTransition(ShipStateInputs.Idle, shipIdleState);
 
-        List<Node> path = GameGrid.FindPath(currentNode, target.GetCurrentNode());
+        shipIsHitState.AddTransition(ShipStateInputs.Idle, shipIdleState);
 
-        /*
-        Color32 rndColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-        for (int i = 0; i < path.Count; i++)
-        {
-            path[i].SetColour(rndColour);
-        }
-        */
-
-        // If out of range, get into range.
-        int index = 0;
-        if (path.Count > GetWeaponRange() && movementSpeed > 0)
-        {
-            Node destination = null;
-            if (movementSpeed >= path.Count)
-                // Minus 2 to not be in target's position and accounting for Count.
-                index = path.Count - 2;
-            else if (movementSpeed < path.Count)
-                index = movementSpeed - 1;
-
-            destination = path[index];
-            Move(destination);
-            currentNode = destination;
-        }
-
-        // If within range, fire weapon.
-        if (((path.Count - 1) - index) <= GetWeaponRange())
-        {
-            Debug.Log("FIRING MISSILE");
-            Node targetNode = path[path.Count - 1];
-            Fire(targetNode);
-            if (targetNode.unit == null)
-            {
-                target = null;
-            }
-        }
-        else
-        {
-//            GameGrid.MovedShip();
-        }
+        stateMachine = new StateMachine<ShipStateInputs>(shipIdleState);
     }
 
-    private void MoveToTarget()
+    public void ShipActivated()
     {
-        FindPath(GetCurrentNode(), target.GetCurrentNode());
+        stateMachine.Transition(ShipStateInputs.Selected);
     }
 
-    // Moving to target.
-    private void FindPath(Node currentNode, Node target)
+    public void ShipMove()
     {
-        pathToTarget = GameGrid.FindPath(currentNode, target);
-
-        Color32 rndColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-        for (int i = 0; i < pathToTarget.Count; i++)
-        {
-            pathToTarget[i].SetColour(rndColour);
-        }
+        stateMachine.Transition(ShipStateInputs.Move);
     }
 
-    // Shooting.
-    private Ship GetClosestTarget(Node currentNode, GameObject[] targetShips)
+    public void ShipAttack()
     {
-        List<Node> shortestPath = new List<Node>();
-        Ship targetShip = targetShips[0].GetComponent<Ship>();
-
-        shortestPath = GameGrid.FindPath(currentNode, targetShip.GetCurrentNode());
-
-        for (int i = 1; i < targetShips.Length; i++)
-        {
-            Ship ship = targetShips[i].GetComponent<Ship>();
-
-            List<Node> aPath = GameGrid.FindPath(currentNode, ship.GetCurrentNode());
-            if (aPath.Count < shortestPath.Count)
-            {
-                shortestPath = aPath;
-                targetShip = ship;
-            }
-        }
-        return targetShip;
+        stateMachine.Transition(ShipStateInputs.Attack);
     }
-
 }

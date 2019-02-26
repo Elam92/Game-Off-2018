@@ -35,23 +35,21 @@ public class ShipMovement : MonoBehaviour
         return isMoving;
     }
 
-    public void MoveShip(Node currentNode, Node target)
+    public void MoveShip(Node from, Node to)
     {
-        StartCoroutine(MakeMove(currentNode, target));
-        currentNode.unit = null;
-        target.unit = transform;
-        currentNode.traversable = true;
-        target.traversable = false;
-
-        currentNode = target;
+        StartCoroutine(MakeMove(from, to));
+        from.unit = null;
+        to.unit = transform;
+        from.traversable = true;
+        to.traversable = false;
     }
 
-    IEnumerator MakeMove(Node current, Node target)
+    IEnumerator MakeMove(Node from, Node to)
     {
         isMoving = true;
         Vector3 lookAt;
         Vector3 curPosition;
-        List<Node> path = GameGrid.FindPath(current, target);
+        List<Node> path = GameGrid.FindPath(from, to);
         for (int i = 0; i < path.Count; i++)
         {
             lookAt = path[i].transform.position - transform.position;

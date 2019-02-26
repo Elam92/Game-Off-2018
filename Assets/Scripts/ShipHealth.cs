@@ -10,7 +10,7 @@ public class ShipHealth : MonoBehaviour
     [SerializeField]
     private int shield;
 
-    public event Action OnDeath = delegate { };
+    public event EventHandler OnDeath;
 
     private int maxHealth;
     // Use this for initialization
@@ -35,7 +35,7 @@ public class ShipHealth : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            OnDeath();
+            OnDeath.Invoke(this, EventArgs.Empty);
         }
     }
 
