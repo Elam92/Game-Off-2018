@@ -43,11 +43,10 @@ public class AISimple : AI
 
         if (activeShip == null)
         {
-            Debug.Log("DOING ACTION");
-
             if (index < ownShips.Count)
             {
                 activeShip = ownShips[index];
+                Debug.Log("DOING ACTION FOR: " + activeShip.name);
                 Debug.Log(activeShip.name);
 
                 activeShip.target = GetClosestTarget(activeShip);
@@ -84,23 +83,20 @@ public class AISimple : AI
         }
 
         Node currentNode = ship.GetCurrentNode();
-        Ship targetShip = targetShips[0].GetComponent<Ship>();
+        Ship targetShip = targetShips[0];
 
-        if (targetShip != null)
+        List<Node> pathToTarget = GameGrid.FindPath(currentNode, targetShip.GetCurrentNode());
+
+        for (int i = 1; i < targetShips.Count; i++)
         {
-            List<Node> pathToTarget = GameGrid.FindPath(currentNode, targetShip.GetCurrentNode());
+            Ship anotherTarget = targetShips[i].GetComponent<Ship>();
 
-            for (int i = 1; i < targetShips.Count; i++)
+            Debug.Log(currentNode.name + " " + ship.GetCurrentNode().name);
+            List<Node> aPath = GameGrid.FindPath(currentNode, anotherTarget.GetCurrentNode());
+            if (aPath.Count < pathToTarget.Count)
             {
-                targetShip = targetShips[i].GetComponent<Ship>();
-
-                Debug.Log(currentNode.name + " " + ship.GetCurrentNode().name);
-                List<Node> aPath = GameGrid.FindPath(currentNode, ship.GetCurrentNode());
-                if (aPath.Count < pathToTarget.Count)
-                {
-                    pathToTarget = aPath;
-                    targetShip = ship;
-                }
+                pathToTarget = aPath;
+                targetShip = anotherTarget;
             }
         }
 

@@ -27,6 +27,7 @@ public class ShipAIAttackState : State<ShipStateInputs>
         else
         {
             GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Targetable, node => node.isWithinWeaponRange = true);
+            Attack();
         }
     }
 
@@ -45,13 +46,17 @@ public class ShipAIAttackState : State<ShipStateInputs>
     public override State<ShipStateInputs> Update()
     {
         // No valid targets, skip Attack State.
-        if (hasNoTargets)
+        if (hasNoTargets || hasAttacked)
         {
             return nextState;
         }
 
-        // If within range, fire weapon.
+        return null;
+    }
 
+    private void Attack()
+    {
+        // If within range, fire weapon.
         for (int i = 0; i < targetNodes.Length; i++)
         {
             Ship enemyShip = targetNodes[i].unit.GetComponent<Ship>();
@@ -69,12 +74,5 @@ public class ShipAIAttackState : State<ShipStateInputs>
             }
 
         }
-
-        if (hasAttacked)
-        {
-            return nextState;
-        }
-
-        return null;
     }
 }

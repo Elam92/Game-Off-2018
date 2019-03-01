@@ -233,7 +233,7 @@ public class GameGrid : MonoBehaviour
             {
                 return RetracePath(from, to);
             }
-            Debug.Log(from.unit.name + ": " + from.name + " TO " + to.name);
+
             foreach (Node neighbour in GetNearestNeighbours(currentNode.gridPosition))
             {
                 if (neighbour.traversable == false && neighbour.unit == null ||

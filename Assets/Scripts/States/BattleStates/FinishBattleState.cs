@@ -18,6 +18,7 @@ public class FinishBattleState : State<BattleStateInputs>
 
         if (controller.aiShipContainer.childCount <= 0)
         {
+            Debug.Log("PLAYER WON!");
             int index = SceneManager.GetActiveScene().buildIndex + 1;
 
             if (index >= SceneManager.sceneCountInBuildSettings)
@@ -28,6 +29,7 @@ public class FinishBattleState : State<BattleStateInputs>
         }
         else if (controller.playerShipContainer.childCount <= 0)
         {
+            Debug.Log("AI WON!");
             SceneManager.LoadScene("MainMenu");
         }
 

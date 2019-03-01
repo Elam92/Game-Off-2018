@@ -20,6 +20,8 @@ public class ShipAIMoveState : State<ShipStateInputs>
         Debug.Log(ship.transform.name + " ENTERING AI MOVE STATE");
         targetNodes = ship.ShowMovementRange();
         GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Moveable, node => node.isWithinMovementRange = true);
+
+        Move();
     }
 
     public override void OnStateExit()
@@ -31,9 +33,19 @@ public class ShipAIMoveState : State<ShipStateInputs>
 
     public override State<ShipStateInputs> Update()
     {
+        if (hasMoved && !ship.IsMoving())
+        {
+            return nextState;
+        }
+
+        return null;
+    }
+
+    private void Move()
+    {
         int movementSpeed = ship.GetMovementSpeed();
 
-        if(hasMoved == false && ship.target != null)
+        if (hasMoved == false && ship.target != null)
         {
             // If out of range, get into range
             int index = 0;
@@ -52,13 +64,7 @@ public class ShipAIMoveState : State<ShipStateInputs>
                 Debug.Log(ship.name + " MOVES TO: " + destination.name);
             }
         }
+
         hasMoved = true;
-
-        if (hasMoved && !ship.IsMoving())
-        {
-            return nextState;
-        }
-
-        return null;
     }
 }
