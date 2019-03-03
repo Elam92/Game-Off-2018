@@ -179,9 +179,10 @@ public class GameGrid : MonoBehaviour
 
             foreach (Node neighbour in GetNearestNeighbours(currentNode.gridPosition))
             {
+                // Conditions: Obstacles, already visited nodes, and ship-occupied nodes that isn't the target
                 if (neighbour.traversable == false && neighbour.unit == null ||
                     closedSet.Contains(neighbour) ||
-                    neighbour.unit != null && neighbour.unit.tag.Equals(from.unit.tag))
+                    neighbour.unit != null && neighbour.unit.GetComponent<Ship>().GetCurrentNode() != to)
                 {
                     continue;
                 }

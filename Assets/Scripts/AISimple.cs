@@ -91,7 +91,6 @@ public class AISimple : AI
         {
             Ship anotherTarget = targetShips[i].GetComponent<Ship>();
 
-            Debug.Log(currentNode.name + " " + ship.GetCurrentNode().name);
             List<Node> aPath = GameGrid.FindPath(currentNode, anotherTarget.GetCurrentNode());
             if (aPath.Count < pathToTarget.Count)
             {

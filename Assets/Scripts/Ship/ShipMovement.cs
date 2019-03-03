@@ -47,14 +47,12 @@ public class ShipMovement : MonoBehaviour
     IEnumerator MakeMove(Node from, Node to)
     {
         isMoving = true;
-        Vector3 curPosition;
         Vector3 direction;
         List<Node> path = GameGrid.FindPath(from, to);
         Debug.Log(transform.forward);
         for (int i = 0; i < path.Count; i++)
         {
             direction = path[i].transform.position - transform.position;
-            curPosition = transform.position;
             transform.rotation = Quaternion.LookRotation(transform.forward, direction);
             transform.position = path[i].transform.position;
 

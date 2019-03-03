@@ -42,6 +42,7 @@ public class Ship : MonoBehaviour
                 {
                     currentNode = node;
                     node.unit = transform;
+                    node.traversable = false;
                 }
             }
         }
