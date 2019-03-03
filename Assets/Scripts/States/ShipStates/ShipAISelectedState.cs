@@ -1,9 +1,11 @@
-﻿public class ShipSelectedState : State<ShipStateInputs>
+﻿using UnityEngine;
+
+public class ShipAISelectedState : State<ShipStateInputs>
 {
     private Ship ship;
     private readonly State<ShipStateInputs> nextState;
 
-    public ShipSelectedState(Ship ship, State<ShipStateInputs> nextState)
+    public ShipAISelectedState(Ship ship, State<ShipStateInputs> nextState)
     {
         this.ship = ship;
         this.nextState = nextState;
@@ -12,7 +14,6 @@
     public override void OnStateEnter()
     {
         BattleController.Instance.SelectedShip = ship;
-        UIController.Instance.ShowShipStats(ship);
         ship.active = true;
     }
 

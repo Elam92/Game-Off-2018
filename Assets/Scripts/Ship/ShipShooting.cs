@@ -50,12 +50,9 @@ public class ShipShooting : MonoBehaviour
 
     public void Fire(Node node)
     {
-        Vector3 lookAt;
-        Vector3 curPosition;
-        lookAt = node.unit.position - transform.position;
-        curPosition = transform.position;
-        curPosition.x = 0;
-        transform.rotation = Quaternion.FromToRotation(curPosition, lookAt);
+        Vector3 direction;
+        direction = node.unit.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(transform.forward, direction);
         Instantiate(GameObject.Find("Missle"), transform).GetComponent<Missle>().target = node.unit;
 
         if (audioSource != null)

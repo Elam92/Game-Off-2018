@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireSFX: {fileID: 8300000, guid: a00e4c62d951b41498948ca5fd8aef06, type: 3}
-  weaponRange: 3
+  weaponRange: 2
   weaponDamage: 3
 --- !u!114 &114516672577757858
 MonoBehaviour:

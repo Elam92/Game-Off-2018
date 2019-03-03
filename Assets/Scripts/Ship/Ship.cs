@@ -30,6 +30,7 @@ public class Ship : MonoBehaviour
 
         shipHealth.OnDeath += Death;
 
+        // Assign the grid and ship to each other.
         if(currentNode == null)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Grid"));
@@ -40,7 +41,6 @@ public class Ship : MonoBehaviour
                 if(node != null)
                 {
                     currentNode = node;
-                    Debug.Log("CONNECTING : " + transform.name);
                     node.unit = transform;
                 }
             }
@@ -63,13 +63,17 @@ public class Ship : MonoBehaviour
         shipSelectedState.AddTransition(ShipStateInputs.Move, shipMoveState);
         shipSelectedState.AddTransition(ShipStateInputs.Idle, shipIdleState);
 
+        shipAttackState.AddTransition(ShipStateInputs.Idle, shipIdleState);
+
+        shipMoveState.AddTransition(ShipStateInputs.Idle, shipIdleState);
+
         shipIsHitState.AddTransition(ShipStateInputs.Idle, shipIdleState);
 
         stateMachine = new StateMachine<ShipStateInputs>(shipIdleState);
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         stateMachine.Update();
     }
@@ -110,6 +114,11 @@ public class Ship : MonoBehaviour
     public int GetWeaponRange()
     {
         return shipWeapon.GetWeaponRange();
+    }
+
+    public int GetWeaponDamage()
+    {
+        return shipWeapon.GetWeaponDamage();
     }
 
     public void Move(Node targetNode)

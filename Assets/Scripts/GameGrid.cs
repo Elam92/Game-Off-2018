@@ -38,38 +38,6 @@ public class GameGrid : MonoBehaviour
         };
 
         CalculateGrid();
-
-        //endTurnButton.onClick.AddListener(ForceEnd);
-        //endGameButton.onClick.AddListener(End);
-    }
-
-    void End()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-    /*
-    void ForceEnd()
-    {
-        foreach (GameObject ship in curShips)
-        {
-            ship.GetComponent<Ship>().activated = false;
-            ship.GetComponent<Ship>().moving = false;
-            ship.GetComponent<Ship>().shooting = false;
-        }
-    }
-    */
-
-    public static void SetUI()
-    {
-        GameObject current = GameObject.Find("HealthValue");
-        Ship selectedShip = BattleController.Instance.SelectedShip;
-        current.GetComponent<Text>().text = selectedShip.GetHealth().ToString();
-        current = GameObject.Find("SpeedValue");
-        current.GetComponent<Text>().text = selectedShip.GetMovementSpeed().ToString();
-        current = GameObject.Find("RangeValue");
-        current.GetComponent<Text>().text = selectedShip.GetWeaponRange().ToString();
-        current = GameObject.Find("DamageValue");
-        current.GetComponent<Text>().text = selectedShip.GetWeaponRange().ToString();
     }
 
     public void CalculateGrid()
@@ -103,32 +71,7 @@ public class GameGrid : MonoBehaviour
     {
         return GameObject.FindGameObjectsWithTag(turn);
     }
-    /*
-    public static void MovedShip()
-    {
-        actedShips += 1;
-        if (playerTurn == true)
-        {
-            if (actedShips >= curShips.Length)
-            {
-                foreach (GameObject ship in curShips)
-                {
-                    ship.GetComponent<Ship>().activated = false;
-                    ship.GetComponent<Ship>().moving = false;
-                    ship.GetComponent<Ship>().shooting = false;
-                }
-              // EndTurn();
-            }
-        }
-        else
-        {
-            if (actedShips >= aiShips.Length)
-            {
-             //  EndTurn();
-            }
-        }
-    }
-        */   
+
     public static void UpdateNodeStates(Node[] nodes, NodeStates state, Action<Node> updateNode = null)
     {
         for (int i = 0; i < nodes.Length; i++)

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class AIShip : Ship 
+public class AIShip : Ship, IPointerClickHandler
 {
     public Ship target;
     private List<Node> pathToTarget;
@@ -12,7 +13,7 @@ public class AIShip : Ship
         var shipIdleState = new ShipIdleState(this);
         var shipAttackState = new ShipAIAttackState(this, shipIdleState);
         var shipMoveState = new ShipAIMoveState(this, shipAttackState);
-        var shipSelectedState = new ShipSelectedState(this, shipMoveState);
+        var shipSelectedState = new ShipAISelectedState(this, shipMoveState);
         var shipIsHitState = new ShipIsHitState(this, shipIdleState);
 
         shipIdleState.AddTransition(ShipStateInputs.Selected, shipSelectedState);
@@ -25,6 +26,15 @@ public class AIShip : Ship
         shipIsHitState.AddTransition(ShipStateInputs.Idle, shipIdleState);
 
         stateMachine = new StateMachine<ShipStateInputs>(shipIdleState);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log(transform.name);
+        if (BattleController.Instance.IsPlayerTurn())
+        { 
+            UIController.Instance.ShowShipStats(this);
+        }
     }
 
     public void ShipActivated()

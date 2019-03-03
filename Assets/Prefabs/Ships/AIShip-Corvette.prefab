@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316093043793556}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4322008782435226}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &212575865286277302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 114139261105283970}
   - component: {fileID: 114296092387654052}
   - component: {fileID: 82681703194933412}
+  - component: {fileID: 9082047555596363622}
   m_Layer: 0
   m_Name: AIShip-Corvette
   m_TagString: AiShip
@@ -127,9 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89717ae09897748f197de828fb2123ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moving: 0
-  shooting: 0
-  activated: 0
+  active: 0
+  turnFinished: 0
   currentNode: {fileID: 0}
   target: {fileID: 0}
 --- !u!114 &114889340221880726
@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7df92f271584baa8f0093b587f4c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 4
   moveSFX: {fileID: 8300000, guid: c84f62d34c7c98042b5622ae22c040ba, type: 3}
+  movementSpeed: 3
 --- !u!114 &114296092387654052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,10 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0c3ee08cdfd4fadb05d0bba3f73620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireSFX: {fileID: 8300000, guid: d8162f16a2be86d409b39cf9fb73bf7a, type: 3}
   weaponRange: 1
   weaponDamage: 2
-  audioSource: {fileID: 0}
-  fireSFX: {fileID: 8300000, guid: d8162f16a2be86d409b39cf9fb73bf7a, type: 3}
 --- !u!82 &82681703194933412
 AudioSource:
   m_ObjectHideFlags: 0
@@ -272,3 +271,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &9082047555596363622
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847390242480066}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

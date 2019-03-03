@@ -47,15 +47,15 @@ public class ShipMovement : MonoBehaviour
     IEnumerator MakeMove(Node from, Node to)
     {
         isMoving = true;
-        Vector3 lookAt;
         Vector3 curPosition;
+        Vector3 direction;
         List<Node> path = GameGrid.FindPath(from, to);
+        Debug.Log(transform.forward);
         for (int i = 0; i < path.Count; i++)
         {
-            lookAt = path[i].transform.position - transform.position;
+            direction = path[i].transform.position - transform.position;
             curPosition = transform.position;
-            curPosition.x = 0;
-            transform.rotation = Quaternion.FromToRotation(curPosition, lookAt);
+            transform.rotation = Quaternion.LookRotation(transform.forward, direction);
             transform.position = path[i].transform.position;
 
             if (audioSource != null)

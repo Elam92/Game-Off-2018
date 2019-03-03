@@ -122,4 +122,14 @@ public class BattleController : MonoBehaviour
     {
         return isPlayerTurn;
     }
+
+    public void EndTurn()
+    {
+        if(isPlayerTurn)
+        {
+            stateMachine.Transition(BattleStateInputs.AITurn);
+            usedShips.Clear();
+            isPlayerTurn = false;
+        }
+    }
 }

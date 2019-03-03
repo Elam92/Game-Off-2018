@@ -6,11 +6,6 @@ public class AIShipMovement : ShipMovement {
 
     List<Node> pathToTarget;
 
-    // Use this for initialization
-    void Start () {
-        
-    }
-    
     public void FindPath(Node currentNode, Node target)
     {
         pathToTarget = GameGrid.FindPath(currentNode, target);
