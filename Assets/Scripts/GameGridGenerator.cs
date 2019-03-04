@@ -37,6 +37,7 @@ public class GameGridGenerator : MonoBehaviour
         Transform grid = new GameObject().transform;
         grid.name = "GeneratedGrid";
         grid.position = transform.position;
+        grid.gameObject.layer = LayerMask.NameToLayer("Grid");
 
         int width = Screen.width;
         int height = Screen.height;
@@ -58,11 +59,12 @@ public class GameGridGenerator : MonoBehaviour
             for (int x = 0; x < gridWorldSize.x; x++)
             {
                 Transform gridNode = Instantiate(gridNodePrefab, nextPosition, Quaternion.identity);
-
+                
                 nextPosition.x += nodeSize.x + nodeOffset.x;
 
                 gridNode.SetParent(grid);
                 gridNode.name = "Grid (" + x + ", " + y + ")";
+                gridNode.gameObject.layer = LayerMask.NameToLayer("Grid");
 
                 Node nodeScript = gridNode.GetComponent<Node>();
                 nodeScript.traversable = true;
