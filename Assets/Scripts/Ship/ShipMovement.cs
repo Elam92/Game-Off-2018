@@ -55,6 +55,7 @@ public class ShipMovement : MonoBehaviour
             direction = path[i].transform.position - transform.position;
             transform.rotation = Quaternion.LookRotation(transform.forward, direction);
             transform.position = path[i].transform.position;
+            transform.position = new Vector3(transform.position.x, transform.position.y, -2f);
 
             if (audioSource != null)
             {

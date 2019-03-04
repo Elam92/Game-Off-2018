@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerTurnState : State<BattleStateInputs>
 {
-
     private List<Ship> playerShips;
+    private List<AIShip> enemyShips;
     private BattleController controller;
     private State<BattleStateInputs> nextState;
 
-    public PlayerTurnState(BattleController controller, List<Ship> playerShips, State<BattleStateInputs> nextState)
+    public PlayerTurnState(BattleController controller, List<Ship> playerShips, List<AIShip> enemyShips, State<BattleStateInputs> nextState)
     {
         this.controller = controller;
         this.playerShips = playerShips;
+        this.enemyShips = enemyShips;
         this.nextState = nextState;
     }
 
@@ -36,7 +37,7 @@ public class PlayerTurnState : State<BattleStateInputs>
 
     public override State<BattleStateInputs> Update()
     {
-        if(playerShips.Count <= 0)
+        if(enemyShips.Count <= 0)
         {
             return nextState;
         }

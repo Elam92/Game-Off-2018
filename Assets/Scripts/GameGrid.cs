@@ -182,7 +182,7 @@ public class GameGrid : MonoBehaviour
                 // Conditions: Obstacles, already visited nodes, and ship-occupied nodes that isn't the target
                 if (neighbour.traversable == false && neighbour.unit == null ||
                     closedSet.Contains(neighbour) ||
-                    neighbour.unit != null && neighbour.unit.GetComponent<Ship>().GetCurrentNode() != to)
+                    neighbour.unit != null && neighbour != to)
                 {
                     continue;
                 }

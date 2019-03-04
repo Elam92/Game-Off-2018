@@ -74,7 +74,7 @@ public class BattleController : MonoBehaviour
 
         var finishState = new FinishBattleState(this);
         var aiTurnState = new AITurnState(this, ai, finishState);
-        var playerTurnState = new PlayerTurnState(this, playerShips, finishState);
+        var playerTurnState = new PlayerTurnState(this, playerShips, aiShips, finishState);
         var initializeState = new InitializeBattleState(this, playerShips, playerTurnState);
 
         aiTurnState.AddTransition(BattleStateInputs.PlayerTurn, playerTurnState);
