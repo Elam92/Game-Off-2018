@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class ShipAttackState : State<ShipStateInputs>
 {
@@ -56,7 +57,7 @@ public class ShipAttackState : State<ShipStateInputs>
             {
                 Node targetNode = hit.transform.GetComponent<Node>();
 
-                if (targetNode != null && targetNode.unit != null)
+                if (targetNode != null && Array.Exists(targetNodes, target => target.Equals(targetNode)))
                 {
                     Ship targetShip = targetNode.unit.GetComponent<Ship>();
                     if (targetShip != null)
