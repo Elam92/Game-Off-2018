@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(ShipMovement))]
 [RequireComponent(typeof(ShipShooting))]
@@ -21,12 +18,15 @@ public class Ship : MonoBehaviour
     [SerializeField]
     protected Node currentNode;
 
+    private Sprite portrait;
+
 
     protected void Awake()
     {
         shipMovement = GetComponent<ShipMovement>();
         shipWeapon = GetComponent<ShipShooting>();
         shipHealth = GetComponent<ShipHealth>();
+        portrait = GetComponentInChildren<SpriteRenderer>().sprite;
 
         shipHealth.OnDeath += Death;
 
@@ -89,6 +89,11 @@ public class Ship : MonoBehaviour
     public int GetHealth()
     {
         return shipHealth.GetCurrentHealth();
+    }
+
+    public Sprite GetPortrait()
+    {
+        return portrait;
     }
 
     public void TakeDamage(int damage)

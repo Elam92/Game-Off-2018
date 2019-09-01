@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     [SerializeField]
+    private Image unitPortrait;
+    [SerializeField]
     private TextMeshProUGUI healthUI;
     [SerializeField]
     private TextMeshProUGUI movementUI;
@@ -17,6 +19,9 @@ public class UIController : MonoBehaviour
     private Button endTurnButton;
     [SerializeField]
     private Button endGameButton;
+
+    private Color noPortrait = new Color(1,1,1,0);
+    private Color hasPortrait = Color.white;
 
     public static UIController Instance;
 
@@ -52,6 +57,18 @@ public class UIController : MonoBehaviour
     {
         if (ship != null)
         {
+            Sprite shipPortrait = ship.GetPortrait();
+            if(shipPortrait != null)
+            {
+                unitPortrait.sprite = shipPortrait;
+                unitPortrait.color = hasPortrait;
+            }
+            else
+            {
+                unitPortrait.sprite = null;
+                unitPortrait.color = noPortrait;
+            }
+
             healthUI.text = ship.GetHealth().ToString();
             movementUI.text = ship.GetMovementSpeed().ToString();
             rangeUI.text = ship.GetWeaponRange().ToString();
@@ -59,6 +76,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
+            unitPortrait.sprite = null;
             healthUI.text = "";
             movementUI.text = "";
             rangeUI.text = "";
