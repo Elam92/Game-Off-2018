@@ -46,7 +46,7 @@ public class ShipAIAttackState : State<ShipStateInputs>
     public override State<ShipStateInputs> Update()
     {
         // No valid targets, skip Attack State.
-        if (hasNoTargets || hasAttacked)
+        if (hasNoTargets || hasAttacked && !ship.IsFiring())
         {
             return nextState;
         }

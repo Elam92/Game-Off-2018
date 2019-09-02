@@ -49,7 +49,7 @@ public class ShipMovement : MonoBehaviour
         isMoving = true;
         Vector3 direction;
         List<Node> path = GameGrid.FindPath(from, to);
-        Debug.Log(transform.forward);
+
         for (int i = 0; i < path.Count; i++)
         {
             direction = path[i].transform.position - transform.position;

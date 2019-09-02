@@ -50,6 +50,13 @@ public class ShipShooting : MonoBehaviour
 
     public void Fire(Node node)
     {
+        StartCoroutine(FireAction(node));
+    }
+
+    IEnumerator FireAction(Node node)
+    {
+        isFiring = true;
+
         Vector3 direction;
         direction = node.unit.position - transform.position;
         transform.rotation = Quaternion.LookRotation(transform.forward, direction);
@@ -63,14 +70,17 @@ public class ShipShooting : MonoBehaviour
             }
         }
 
-        isFiring = true;
-
         Ship targetShip = node.unit.GetComponent<Ship>();
         Debug.Log("TARGET SHIP: " + targetShip.name);
-        if(targetShip != null)
+        if (targetShip != null)
         {
             Debug.Log("TAKING DAMAGE");
             targetShip.TakeDamage(weaponDamage);
+
         }
+
+        yield return new WaitForSeconds(0.2f);
+
+        isFiring = false;
     }
 }

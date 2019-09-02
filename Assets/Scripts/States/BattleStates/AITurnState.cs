@@ -5,7 +5,6 @@ using UnityEngine;
 public class AITurnState : State<BattleStateInputs>
 {
     private AI ai;
-    private List<AIShip> aiShips;
     private BattleController controller;
     private State<BattleStateInputs> nextState;
 
@@ -19,7 +18,23 @@ public class AITurnState : State<BattleStateInputs>
     public override void OnStateEnter()
     {
         Debug.Log("ENTER AITURNSTATE");
+
+        List<AIShip> ships = ai.GetShips();
+        foreach (Ship ship in ships)
+        {
+            ship.turnFinished = false;
+        }
+
         ai.Initialize();
+    }
+
+    public override void OnStateExit()
+    {
+        List<AIShip> ships = ai.GetShips();
+        foreach (Ship ship in ships)
+        {
+            ship.turnFinished = true;
+        }
     }
 
     public override State<BattleStateInputs> Update()

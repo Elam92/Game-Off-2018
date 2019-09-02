@@ -40,7 +40,6 @@ public class AISimple : AI
 
     public override void DoActions()
     {
-
         if (activeShip == null)
         {
             if (index < ownShips.Count)
