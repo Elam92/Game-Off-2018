@@ -46,7 +46,6 @@ public class AISimple : AI
             {
                 activeShip = ownShips[index];
                 Debug.Log("DOING ACTION FOR: " + activeShip.name);
-                Debug.Log(activeShip.name);
 
                 activeShip.target = GetClosestTarget(activeShip);
                 activeShip.ShipActivated();
@@ -55,7 +54,6 @@ public class AISimple : AI
         }
         else if (activeShip.turnFinished)
         {
-            Debug.Log("TULSJKDFKLDS");
             activeShip = null;
         }
     }

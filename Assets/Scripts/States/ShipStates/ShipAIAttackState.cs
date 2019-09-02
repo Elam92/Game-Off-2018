@@ -18,7 +18,7 @@ public class ShipAIAttackState : State<ShipStateInputs>
 
     public override void OnStateEnter()
     {
-        Debug.Log(ship.transform.name + " ENTERING AI ATTACK STATE");
+        Debug.Log("<color=red> " + ship.transform.name + " ENTERING AI ATTACK STATE</color>");
         targetNodes = ship.ShowWeaponRange();
         if (targetNodes.Length == 0)
         {

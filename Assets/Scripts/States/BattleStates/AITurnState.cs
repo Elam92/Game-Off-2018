@@ -17,7 +17,7 @@ public class AITurnState : State<BattleStateInputs>
 
     public override void OnStateEnter()
     {
-        Debug.Log("ENTER AITURNSTATE");
+        Debug.Log("<color=yellow>ENTER AITURNSTATE</color>");
 
         List<AIShip> ships = ai.GetShips();
         foreach (Ship ship in ships)

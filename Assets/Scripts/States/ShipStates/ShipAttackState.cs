@@ -17,7 +17,6 @@ public class ShipAttackState : State<ShipStateInputs>
 
     public override void OnStateEnter()
     {
-        Debug.Log(ship.transform.name + " ENTERING ATTACK STATE");
         targetNodes = ship.ShowWeaponRange();
         if(targetNodes.Length == 0)
         {
