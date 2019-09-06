@@ -31,7 +31,7 @@ public class PlayerTurnState : State<BattleStateInputs>
         Debug.Log("LEAVING PLAYERTURNSTATE");
         foreach (Ship ship in playerShips)
         {
-            ship.turnFinished = true;
+            ship.FinishTurn();
         }
     }
 

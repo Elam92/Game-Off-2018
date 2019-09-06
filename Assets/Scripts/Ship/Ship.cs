@@ -107,6 +107,12 @@ public class Ship : MonoBehaviour
         shipWeapon.Fire(targetNode);
     }
 
+    public void FinishTurn()
+    {
+        turnFinished = true;
+        stateMachine.Transition(ShipStateInputs.Idle);
+    }
+
     public bool IsFiring()
     {
         return shipWeapon.IsFiring();
