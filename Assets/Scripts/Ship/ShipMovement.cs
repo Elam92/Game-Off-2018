@@ -22,6 +22,14 @@ public class ShipMovement : MonoBehaviour
     public Node[] ShowMoveRange(Node currentNode)
     {
         List<Node> neighbours = GameGrid.GetNeighbours(currentNode.gridPosition, movementSpeed, new List<Node>(), 0, false);
+        for (int i = neighbours.Count - 1; i >= 0; i--)
+        {
+            if (!neighbours[i].traversable)
+            {
+                neighbours.RemoveAt(i);
+            }
+        }
+
         return neighbours.ToArray();
     }
 

@@ -102,9 +102,9 @@ public class GameGrid : MonoBehaviour
         // using the array of directional ints works through all 4 dirrections for the current node and when there is a possible move it recursivly calls GetNeighbour again
         for (int i = 0; i < directions.Length; i += 2)
         {
-            if (row + directions[i] >= 0 && row + directions[i] <= grid.GetLength(0) - 1)
+            if (row + directions[i] >= 0 && row + directions[i] < grid.GetLength(0))
             {
-                if (col + directions[i + 1] >= 0 && col + directions[i + 1] <= grid.GetLength(1) - 1)
+                if (col + directions[i + 1] >= 0 && col + directions[i + 1] < grid.GetLength(1))
                 {
                     if (!nodeList.Contains(grid[row + directions[i], col + directions[i + 1]]))
                     {
