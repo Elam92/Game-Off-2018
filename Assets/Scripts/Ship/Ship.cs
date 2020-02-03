@@ -83,6 +83,7 @@ public class Ship : MonoBehaviour
     {
         currentNode.traversable = true;
         currentNode.unit = null;
+        shipHealth.OnDeath -= Death;
         Destroy(gameObject);
     }
 

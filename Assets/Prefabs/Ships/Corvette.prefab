@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4f80d5fa4889b40ade6a92014ab448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 4243495563819972147, guid: be6fdc355a3fe5d4a94ef585a8fb6ff2,
+    type: 3}
   fireSFX: {fileID: 8300000, guid: a00e4c62d951b41498948ca5fd8aef06, type: 3}
   weaponRange: 1
   weaponDamage: 2

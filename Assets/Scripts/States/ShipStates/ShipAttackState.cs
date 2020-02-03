@@ -80,7 +80,7 @@ public class ShipAttackState : State<ShipStateInputs>
             }
         }
 
-        if (hasAttacked)
+        if (hasAttacked && !ship.IsFiring())
         {
             return nextState;
         }

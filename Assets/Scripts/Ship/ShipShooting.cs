@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipShooting : MonoBehaviour
 {
+    public Missile projectile;
     public AudioClip fireSFX;
 
     [SerializeField]
@@ -60,7 +62,9 @@ public class ShipShooting : MonoBehaviour
         Vector3 direction;
         direction = node.unit.position - transform.position;
         transform.rotation = Quaternion.LookRotation(transform.forward, direction);
-        Instantiate(GameObject.Find("Missle"), transform).GetComponent<Missle>().target = node.unit;
+        Missile missile = Instantiate(projectile, transform);
+        missile.target = node.unit;
+        missile.OnHit += DamageShip;
 
         if (audioSource != null)
         {
@@ -70,16 +74,22 @@ public class ShipShooting : MonoBehaviour
             }
         }
 
-        Ship targetShip = node.unit.GetComponent<Ship>();
-        Debug.Log("TARGET SHIP: " + targetShip.name);
-        if (targetShip != null)
+        Debug.Log("TARGET SHIP: " + node.unit.name);
+        while(isFiring)
         {
-            Debug.Log("TAKING DAMAGE");
-            targetShip.TakeDamage(weaponDamage);
+            yield return null;
+        }
+    }
 
+    private void DamageShip(object sender, OnHitEventArgs e)
+    {
+        if (e.target != null)
+        {
+            e.target.TakeDamage(weaponDamage);
         }
 
-        yield return new WaitForSeconds(0.2f);
+        Missile missile = (Missile)sender;
+        missile.OnHit -= DamageShip;
 
         isFiring = false;
     }
