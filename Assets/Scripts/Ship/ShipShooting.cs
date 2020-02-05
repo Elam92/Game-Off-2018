@@ -37,17 +37,25 @@ public class ShipShooting : MonoBehaviour
         return isFiring;
     }
 
-    public Node[] ShowWeaponRange(int[] gridPosition)
+    public (Node[] range, Node[] targets)? ShowWeaponRange(int[] gridPosition)
     {
-        List<Node> neighbours = GameGrid.GetNeighbours(gridPosition, weaponRange, new List<Node>(), 0, true);
-        for (int i = neighbours.Count - 1; i >= 0; i--)
+        List<Node> range = GameGrid.GetNeighbours(gridPosition, weaponRange, new List<Node>(), 0, true);
+        List<Node> targets = new List<Node>();
+        for (int i = range.Count - 1; i >= 0; i--)
         {
-            if (neighbours[i].traversable || neighbours[i].unit == null || neighbours[i].unit.GetComponent<ShipHealth>() == false || tag.Equals(neighbours[i].unit.tag))
+            // If node is occupied and is an Enemy ship.
+            if(range[i].unit != null && range[i].unit.GetComponent<Ship>() == true && !tag.Equals(range[i].unit.tag))
             {
-                neighbours.RemoveAt(i);
+                targets.Add(range[i]);
+                range.RemoveAt(i);
+            }
+            // If node is not a ship and is not traversable.
+            else if(!range[i].traversable)
+            {
+                range.RemoveAt(i);
             }
         }
-        return neighbours.ToArray();
+        return (range.ToArray(), targets.ToArray());
     }
 
     public void Fire(Node node)

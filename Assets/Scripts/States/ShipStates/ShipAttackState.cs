@@ -7,7 +7,7 @@ public class ShipAttackState : State<ShipStateInputs>
     private readonly State<ShipStateInputs> nextState;
     private bool hasAttacked = false;
     private bool hasNoTargets = false;
-    private Node[] targetNodes;
+    private (Node[] range, Node[] targets)? targetNodes;
 
     public ShipAttackState(Ship ship, State<ShipStateInputs> nextState)
     {
@@ -18,13 +18,14 @@ public class ShipAttackState : State<ShipStateInputs>
     public override void OnStateEnter()
     {
         targetNodes = ship.ShowWeaponRange();
-        if(targetNodes.Length == 0)
+        if(targetNodes?.targets.Length == 0)
         {
             hasNoTargets = true;
         }
         else
         {
-            GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Targetable, node => node.isWithinWeaponRange = true);
+            GameGrid.UpdateNodeStates(targetNodes?.range, GameGrid.NodeStates.WeaponRange, node => node.isWithinWeaponRange = true);
+            GameGrid.UpdateNodeStates(targetNodes?.targets, GameGrid.NodeStates.Targetable, node => node.isWithinWeaponRange = true);
         }
     }
 
@@ -33,7 +34,8 @@ public class ShipAttackState : State<ShipStateInputs>
         ship.turnFinished = true;
         BattleController.Instance.SelectedShip = null;
 
-        GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
+        GameGrid.UpdateNodeStates(targetNodes?.range, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
+        GameGrid.UpdateNodeStates(targetNodes?.targets, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
 
         hasAttacked = false;
         hasNoTargets = false;
@@ -56,7 +58,7 @@ public class ShipAttackState : State<ShipStateInputs>
             {
                 Node targetNode = hit.transform.GetComponent<Node>();
 
-                if (targetNode != null && Array.Exists(targetNodes, target => target.Equals(targetNode)))
+                if (targetNode != null && Array.Exists(targetNodes?.targets, target => target.Equals(targetNode)))
                 {
                     Ship targetShip = targetNode.unit.GetComponent<Ship>();
                     if (targetShip != null)

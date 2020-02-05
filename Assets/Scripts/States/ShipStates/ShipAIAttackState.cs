@@ -8,7 +8,7 @@ public class ShipAIAttackState : State<ShipStateInputs>
     private readonly State<ShipStateInputs> nextState;
     private bool hasAttacked = false;
     private bool hasNoTargets = false;
-    private Node[] targetNodes;
+    private (Node[] range, Node[] targets)? targetNodes;
 
     public ShipAIAttackState(AIShip ship, State<ShipStateInputs> nextState)
     {
@@ -20,13 +20,14 @@ public class ShipAIAttackState : State<ShipStateInputs>
     {
         Debug.Log("<color=red> " + ship.transform.name + " ENTERING AI ATTACK STATE</color>");
         targetNodes = ship.ShowWeaponRange();
-        if (targetNodes.Length == 0)
+        if (targetNodes?.targets.Length == 0)
         {
             hasNoTargets = true;
         }
         else
         {
-            GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Targetable, node => node.isWithinWeaponRange = true);
+            GameGrid.UpdateNodeStates(targetNodes?.range, GameGrid.NodeStates.WeaponRange, node => node.isWithinWeaponRange = true);
+            GameGrid.UpdateNodeStates(targetNodes?.targets, GameGrid.NodeStates.Targetable, node => node.isWithinWeaponRange = true);
             Attack();
         }
     }
@@ -36,7 +37,9 @@ public class ShipAIAttackState : State<ShipStateInputs>
         ship.turnFinished = true;
         BattleController.Instance.SelectedShip = null;
 
-        GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
+        GameGrid.UpdateNodeStates(targetNodes?.range, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
+        GameGrid.UpdateNodeStates(targetNodes?.targets, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
+
 
         hasAttacked = false;
         hasNoTargets = false;
@@ -57,17 +60,18 @@ public class ShipAIAttackState : State<ShipStateInputs>
     private void Attack()
     {
         // If within range, fire weapon.
-        for (int i = 0; i < targetNodes.Length; i++)
+        Node[] targets = targetNodes?.targets;
+        for (int i = 0; i < targets.Length; i++)
         {
-            Ship enemyShip = targetNodes[i].unit.GetComponent<Ship>();
+            Ship enemyShip = targets[i].unit.GetComponent<Ship>();
 
             if (enemyShip != null && enemyShip == ship.target)
             {
                 Debug.Log("FIRING MISSILE");
-                ship.Fire(targetNodes[i]);
+                ship.Fire(targets[i]);
                 hasAttacked = true;
 
-                if (targetNodes[i].unit == null)
+                if (targets[i].unit == null)
                 {
                     ship.target = null;
                 }

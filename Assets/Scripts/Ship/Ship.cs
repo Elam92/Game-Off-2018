@@ -119,7 +119,7 @@ public class Ship : MonoBehaviour
         return shipWeapon.IsFiring();
     }
 
-    public Node[] ShowWeaponRange()
+    public (Node[] range, Node[] targets)? ShowWeaponRange()
     {
         return shipWeapon.ShowWeaponRange(GetCurrentNode().gridPosition);
     }

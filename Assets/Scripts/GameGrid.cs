@@ -12,6 +12,7 @@ public class GameGrid : MonoBehaviour
     {
         Normal,
         Moveable,
+        WeaponRange,
         Targetable
     }
     public LayerMask untraversableMask;
@@ -28,14 +29,17 @@ public class GameGrid : MonoBehaviour
     {
         Color32 originalColour = new Color32(255, 255, 255, 30);
         Color32 moveableColour = new Color32(0, 255, 0, 40);
-        Color32 targetColour = new Color32(255, 0, 0, 40);
+        Color32 targetColour = new Color32(255, 0, 0, 60);
+        Color32 weaponRangeColour = new Color32(0, 0, 255, 60);
 
         nodeStateColours = new Dictionary<NodeStates, Color32>
         {
             { NodeStates.Normal, originalColour },
             { NodeStates.Moveable, moveableColour },
-            { NodeStates.Targetable, targetColour }
+            { NodeStates.Targetable, targetColour },
+            { NodeStates.WeaponRange, weaponRangeColour }
         };
+
 
         CalculateGrid();
     }
@@ -65,11 +69,6 @@ public class GameGrid : MonoBehaviour
                 }
             }
         }
-    }
-
-    public static GameObject[] GetShips(string turn)
-    {
-        return GameObject.FindGameObjectsWithTag(turn);
     }
 
     public static void UpdateNodeStates(Node[] nodes, NodeStates state, Action<Node> updateNode = null)
