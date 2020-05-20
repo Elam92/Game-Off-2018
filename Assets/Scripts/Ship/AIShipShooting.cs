@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Not being used really.
 public class AIShipShooting : ShipShooting
 {
 
+    /*
     public Ship GetClosestTarget(Node currentNode, GameObject[] targetShips)
     {
         List<Node> shortestPath = new List<Node>();
@@ -24,5 +26,6 @@ public class AIShipShooting : ShipShooting
             }
         }
         return targetShip;
-    }
+    } */
+
 }

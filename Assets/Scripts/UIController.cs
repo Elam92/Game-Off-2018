@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
+#pragma warning disable 649
     [SerializeField]
     private Image unitPortrait;
     [SerializeField]
@@ -19,6 +20,7 @@ public class UIController : MonoBehaviour
     private Button endTurnButton;
     [SerializeField]
     private Button endGameButton;
+#pragma warning restore 649
 
     private Color noPortrait = new Color(1,1,1,0);
     private Color hasPortrait = Color.white;

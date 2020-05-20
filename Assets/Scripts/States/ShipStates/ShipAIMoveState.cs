@@ -17,7 +17,7 @@ public class ShipAIMoveState : State<ShipStateInputs>
 
     public override void OnStateEnter()
     {
-        Debug.Log(ship.transform.name + " ENTERING AI MOVE STATE");
+        Debug.Log("<color=green>" + ship.transform.name + " ENTERING AI MOVE STATE></color>");
         targetNodes = ship.ShowMovementRange();
         GameGrid.UpdateNodeStates(targetNodes, GameGrid.NodeStates.Moveable, node => node.isWithinMovementRange = true);
 
@@ -47,10 +47,10 @@ public class ShipAIMoveState : State<ShipStateInputs>
 
         if (hasMoved == false && ship.target != null)
         {
-            // If out of range, get into range
+            // If out of range, get into range, taking into account of obstacles for targeting. 
             int index = 0;
             List<Node> pathToTarget = GameGrid.FindPath(ship.GetCurrentNode(), ship.target.GetCurrentNode());
-            if (pathToTarget.Count > ship.GetWeaponRange() && movementSpeed > 0)
+            if (movementSpeed > 0 && !ship.HasTargetInRange(pathToTarget.Count))
             {
                 Node destination = null;
                 if (movementSpeed >= pathToTarget.Count)
@@ -61,7 +61,7 @@ public class ShipAIMoveState : State<ShipStateInputs>
 
                 destination = pathToTarget[index];
                 ship.Move(destination);
-                Debug.Log(ship.name + " MOVES TO: " + destination.name);
+                Debug.Log("<color=green>" + ship.name + " MOVES TO: " + destination.name + "</color>");
             }
         }
 

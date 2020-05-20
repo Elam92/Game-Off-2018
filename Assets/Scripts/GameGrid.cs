@@ -71,6 +71,11 @@ public class GameGrid : MonoBehaviour
         }
     }
 
+    public static Node GetNode(int[] gridPosition)
+    {
+        return grid[gridPosition[0], gridPosition[1]];
+    }
+
     public static void UpdateNodeStates(Node[] nodes, NodeStates state, Action<Node> updateNode = null)
     {
         for (int i = 0; i < nodes.Length; i++)
@@ -148,6 +153,7 @@ public class GameGrid : MonoBehaviour
         return neighbours;
     }
 
+    // Find the path for the object to move through.
     public static List<Node> FindPath(Node from, Node to)
     {
         List<Node> openSet = new List<Node>();

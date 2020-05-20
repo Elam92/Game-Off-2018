@@ -25,7 +25,7 @@ public class FinishBattleState : State<BattleStateInputs>
             {
                 index = 0;
             }
-            SceneManager.LoadSceneAsync(index);
+            SceneManager.LoadScene(index);
         }
         else if (controller.playerShipContainer.childCount <= 0)
         {

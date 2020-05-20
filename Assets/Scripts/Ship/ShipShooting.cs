@@ -15,11 +15,13 @@ public class ShipShooting : MonoBehaviour
 
     private bool isFiring = false;
     private AudioSource audioSource;
+    private int obstacleLayerMask;
 
     // Use this for initialization
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        obstacleLayerMask = LayerMask.GetMask("Obstacle");
     }
 
     public int GetWeaponDamage()
@@ -37,14 +39,42 @@ public class ShipShooting : MonoBehaviour
         return isFiring;
     }
 
+    public bool HasTargetInRange(int nodesToTarget, Vector2 origin, Vector2 direction)
+    {
+        if (nodesToTarget > weaponRange)
+        {
+            return false;
+        }
+        else
+        {
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, direction.magnitude, obstacleLayerMask);
+            // If there is an obstacle in the way.
+            if (hit.collider != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public (Node[] range, Node[] targets)? ShowWeaponRange(int[] gridPosition)
     {
         List<Node> range = GameGrid.GetNeighbours(gridPosition, weaponRange, new List<Node>(), 0, true);
         List<Node> targets = new List<Node>();
+
+        Vector3 origin = GameGrid.GetNode(gridPosition).transform.position;
         for (int i = range.Count - 1; i >= 0; i--)
         {
+            Vector2 direction = range[i].transform.position - origin;
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, direction.magnitude, obstacleLayerMask);
+            // If there is an obstacle in the way.
+            if(hit.collider != null)
+            {
+                range.RemoveAt(i);
+            }
             // If node is occupied and is an Enemy ship.
-            if(range[i].unit != null && range[i].unit.GetComponent<Ship>() == true && !tag.Equals(range[i].unit.tag))
+            else if(range[i].unit != null && range[i].unit.GetComponent<Ship>() == true && !tag.Equals(range[i].unit.tag))
             {
                 targets.Add(range[i]);
                 range.RemoveAt(i);

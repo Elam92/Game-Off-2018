@@ -23,6 +23,7 @@ public class ShipAIAttackState : State<ShipStateInputs>
         if (targetNodes?.targets.Length == 0)
         {
             hasNoTargets = true;
+            Debug.Log("<color=red> " + ship.transform.name + " NO TARGETS</color>");
         }
         else
         {

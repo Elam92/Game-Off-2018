@@ -32,9 +32,18 @@ public class AIShip : Ship, IPointerClickHandler
     {
         Debug.Log(transform.name);
         if (BattleController.Instance.IsPlayerTurn())
-        { 
+        {
             UIController.Instance.ShowShipStats(this);
         }
+    }
+
+    // Check if target is in within weapon range. If it is, check if there are obstacles in the way.
+    public bool HasTargetInRange(int nodesToTarget)
+    {
+        Vector2 origin = currentNode.transform.position;
+        Vector2 direction = (Vector2) target.GetCurrentNode().transform.position - origin;
+
+        return shipWeapon.HasTargetInRange(nodesToTarget, origin, direction);
     }
 
     public void ShipActivated()
