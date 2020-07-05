@@ -16,6 +16,12 @@
         ship.active = true;
     }
 
+    public override void OnStateExit()
+    {
+        Node node = ship.GetCurrentNode();
+        GameGrid.UpdateNodeState(node, GameGrid.NodeStates.Normal);
+    }
+
     public override State<ShipStateInputs> Update()
     {
         return nextState;

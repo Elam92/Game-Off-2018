@@ -11,6 +11,7 @@ public class GameGrid : MonoBehaviour
     public enum NodeStates
     {
         Normal,
+        Selectable,
         Moveable,
         WeaponRange,
         Targetable
@@ -28,6 +29,7 @@ public class GameGrid : MonoBehaviour
     private void Awake()
     {
         Color32 originalColour = new Color32(255, 255, 255, 30);
+        Color32 selectableColour = new Color32(241, 222, 28, 143);
         Color32 moveableColour = new Color32(0, 255, 0, 40);
         Color32 targetColour = new Color32(255, 0, 0, 60);
         Color32 weaponRangeColour = new Color32(0, 0, 255, 60);
@@ -35,6 +37,7 @@ public class GameGrid : MonoBehaviour
         nodeStateColours = new Dictionary<NodeStates, Color32>
         {
             { NodeStates.Normal, originalColour },
+            { NodeStates.Selectable, selectableColour },
             { NodeStates.Moveable, moveableColour },
             { NodeStates.Targetable, targetColour },
             { NodeStates.WeaponRange, weaponRangeColour }
@@ -74,6 +77,12 @@ public class GameGrid : MonoBehaviour
     public static Node GetNode(int[] gridPosition)
     {
         return grid[gridPosition[0], gridPosition[1]];
+    }
+
+    public static void UpdateNodeState(Node node, NodeStates state, Action<Node> updateNode = null)
+    {
+        node.SetColour(nodeStateColours[state]);
+        updateNode?.Invoke(node);
     }
 
     public static void UpdateNodeStates(Node[] nodes, NodeStates state, Action<Node> updateNode = null)

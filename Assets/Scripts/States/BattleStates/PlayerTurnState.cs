@@ -20,10 +20,15 @@ public class PlayerTurnState : State<BattleStateInputs>
     public override void OnStateEnter()
     {
         Debug.Log("ENTER PLAYER'S TURN");
-        foreach(Ship ship in playerShips)
+        Node[] shipNodes = new Node[playerShips.Count];
+
+        for(int i = 0; i < playerShips.Count; i++)
         {
-            ship.turnFinished = false;
+            playerShips[i].turnFinished = false;
+            shipNodes[i] = playerShips[i].GetCurrentNode();
         }
+
+        GameGrid.UpdateNodeStates(shipNodes, GameGrid.NodeStates.Selectable);
     }
 
     public override void OnStateExit()
