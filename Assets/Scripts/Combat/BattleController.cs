@@ -59,15 +59,20 @@ public class BattleController : MonoBehaviour
 
         // Add Ships in Scene
         playerShips = new List<Ship>();
-        foreach (Transform ship in playerShipContainer)
+        foreach (Transform shipTransform in playerShipContainer)
         {
-            playerShips.Add(ship.GetComponent<Ship>());
+            Ship ship = shipTransform.GetComponent<Ship>();
+            playerShips.Add(ship);
+            ship.SetOwner("Player");
+
         }
 
         aiShips = new List<AIShip>();
-        foreach (Transform aiShip in aiShipContainer)
+        foreach (Transform aiShipTransform in aiShipContainer)
         {
-            aiShips.Add(aiShip.GetComponent<AIShip>());
+            AIShip aiShip = aiShipTransform.GetComponent<AIShip>();
+            aiShip.SetOwner("Enemy");
+            aiShips.Add(aiShip);
         }
 
         AISimple ai = new AISimple(aiShips, playerShips);

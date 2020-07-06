@@ -7,6 +7,10 @@ public class UIController : MonoBehaviour
 {
 #pragma warning disable 649
     [SerializeField]
+    private GameObject shipStatsContainer;
+    [SerializeField]
+    private TextMeshProUGUI shipOwner;
+    [SerializeField]
     private Image unitPortrait;
     [SerializeField]
     private TextMeshProUGUI healthUI;
@@ -24,6 +28,7 @@ public class UIController : MonoBehaviour
 
     private Color noPortrait = new Color(1,1,1,0);
     private Color hasPortrait = Color.white;
+    private Ship selectedShip;
 
     public static UIController Instance;
 
@@ -41,6 +46,11 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        healthUI.text = "";
+        movementUI.text = "";
+        rangeUI.text = "";
+        damageUI.text = "";
+
         endTurnButton.onClick.AddListener(EndTurn);
         endGameButton.onClick.AddListener(EndGame);
     }
@@ -57,8 +67,12 @@ public class UIController : MonoBehaviour
 
     public void ShowShipStats(Ship ship)
     {
+        shipStatsContainer.SetActive(true);
+
         if (ship != null)
         {
+            shipOwner.text = ship.GetOwner() + " Ship";
+
             Sprite shipPortrait = ship.GetPortrait();
             if(shipPortrait != null)
             {
@@ -78,11 +92,28 @@ public class UIController : MonoBehaviour
         }
         else
         {
+            shipOwner.text = "";
             unitPortrait.sprite = null;
             healthUI.text = "";
             movementUI.text = "";
             rangeUI.text = "";
             damageUI.text = "";
         }
+    }
+
+    public void HideShipStats()
+    {
+        if(selectedShip == null)
+        {
+            shipStatsContainer.SetActive(false);
+        } else
+        {
+            ShowShipStats(selectedShip);
+        }
+    }
+
+    public void SetSelectedShip(Ship ship)
+    {
+        selectedShip = ship;
     }
 }

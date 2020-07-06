@@ -1,13 +1,16 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(ShipMovement))]
 [RequireComponent(typeof(ShipShooting))]
 [RequireComponent(typeof(ShipHealth))]
-public class Ship : MonoBehaviour
+public class Ship : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public bool active = false;
     public bool turnFinished = false;
+
+    protected string shipOwner;
 
     protected StateMachine<ShipStateInputs> stateMachine;
 
@@ -79,12 +82,33 @@ public class Ship : MonoBehaviour
         stateMachine.Update();
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UIController.Instance.ShowShipStats(this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UIController.Instance.HideShipStats();
+    }
+
+
     private void Death(object sender, EventArgs e)
     {
         currentNode.traversable = true;
         currentNode.unit = null;
         shipHealth.OnDeath -= Death;
         Destroy(gameObject);
+    }
+
+    public void SetOwner(string owner)
+    {
+        shipOwner = owner;
+    }
+
+    public string GetOwner()
+    {
+        return shipOwner;
     }
 
     public int GetHealth()

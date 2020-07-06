@@ -12,8 +12,9 @@
     public override void OnStateEnter()
     {
         BattleController.Instance.SelectedShip = ship;
-        UIController.Instance.ShowShipStats(ship);
         ship.active = true;
+        UIController.Instance.ShowShipStats(ship);
+        UIController.Instance.SetSelectedShip(ship);
     }
 
     public override void OnStateExit()

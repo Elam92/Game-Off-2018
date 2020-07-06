@@ -33,6 +33,8 @@ public class ShipAttackState : State<ShipStateInputs>
     {
         ship.turnFinished = true;
         BattleController.Instance.SelectedShip = null;
+        UIController.Instance.SetSelectedShip(null);
+        UIController.Instance.HideShipStats();
 
         GameGrid.UpdateNodeStates(targetNodes?.range, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
         GameGrid.UpdateNodeStates(targetNodes?.targets, GameGrid.NodeStates.Normal, node => node.isWithinWeaponRange = false);
